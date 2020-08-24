@@ -8,6 +8,7 @@ module.exports = {
         'level-4': '#243c5a',
         'level-5': '#243c5a',
         'level-6': '#243c5a',
+        "white-c": '#F9F9F9'
       }
     }
   },
