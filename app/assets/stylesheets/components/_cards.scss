@@ -1,0 +1,41 @@
+.flipCard {
+   position: relative;
+}
+.flipCard .card.flipped {
+  transform:rotatey(-180deg);
+}
+.flipCard .card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+.flipCard .card .side {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  box-sizing: border-box;
+  z-index: 2;
+  backface-visibility: hidden;
+  overflow: auto;
+}
+.flipCard .card .back {
+  color: black;
+  transform:rotatey(-180deg);
+}
+
+.flipCard .card .front {
+  font-size: 3em;
+  text-align: center;
+  line-height: 160px;
+  color: white;
+
+}
+.flipCard .card .back {
+  text-align: center;
+  color: black;
+  padding-top: 50px;
+  font-size: 2em;
+}
