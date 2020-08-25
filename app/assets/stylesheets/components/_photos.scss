@@ -1,0 +1,10 @@
+.filter {
+    /* filter: url(filters.svg#grayscale); Firefox 3.5+ */
+      filter: gray; /* IE5+ */
+      -webkit-filter: grayscale(1); /* Webkit Nightlies & Chrome Canary */
+    }
+
+    .filter:hover {
+    filter: none;
+      -webkit-filter: grayscale(0);
+    }
