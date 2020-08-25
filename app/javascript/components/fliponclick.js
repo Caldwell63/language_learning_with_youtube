@@ -1,5 +1,7 @@
-const card = document.getElementById('card');
-
-document.getElementById('flip').addEventListener('click', function() {
-    card.classList.toggle('flipped');
-}, false);
+$('#js-flip-1').toggle(
+    function() {
+        $('#js-flip-1 .card').addClass('flipped');
+    },
+    function() { $('#js-flip-1 .card').removeClass('flipped');
+    }
+);
