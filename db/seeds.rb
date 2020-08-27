@@ -1,15 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 require 'tts'
-# Function that grabs the user input and plays it in English
-# And then displays what was said in the command line.
-# Allows us to easily just write "say()"
 def say(word)
     s = "#{word}"
     repeatTimes = 1
@@ -20,68 +9,68 @@ end
 
 say("anton hello")
 
-
-require 'csv'
-def import_from_csv
-  csv_text = File.read(Rails.root.join('lib', 'seeds', 'data_frequent_words_en.csv'))
-  csv = CSV.parse(csv_text, :headers => true)
-  csv.each do |row|
-    w = Word.new
-    w.rank = row['rank']
-    w.en = row['en'].downcase
-    w.frequency = row['frequency']
-    w.save
-    p w
-  end
-end
-
-# puts "cleaning #{Word.count} words form DB..."
-# Word.destroy_all
-# puts Word.count
-
-# import_from_csv
-
-puts "Finish! now #{Word.count} words in DB"
-
-
-
-
-
-
-
-
-
-  def text_to_test
-    %w(this is a test this is a car cars are awesome however what I do not know why what to write happy how ever need some beer soon i am in a friday feeling)
-  end
-
-
-
-
-def language_level(text_array)
-  # variable declaration
-  text = text_array
-  array_result = []
-  hash_result = {}
-  i = 1
-  # loop
-  while text.length * 0.6 > array_result.length
-    frequent_word = Word.where(rank: "#{i}").first.en
-    if text.include?(frequent_word)
-      how_many = text.count(frequent_word)
-      how_many.times { array_result << i }
-    end
-    i = i + 1
-  end
-  # prepare clean return
-  hash_result[:most_difficult] = Word.where(rank: "#{array_result.last}").first.en
-  hash_result[:max_rank] = array_result.last
-  hash_result[:arg_rank] = array_result.sum / array_result.length
-  return  hash_result
-end
-
-text = text_to_test
-print language_level(text)
+#
+# require 'csv'
+# def import_from_csv
+#   csv_text = File.read(Rails.root.join('lib', 'seeds', 'data_frequent_words_en.csv'))
+#   csv = CSV.parse(csv_text, :headers => true)
+#   csv.each do |row|
+#     w = Word.new
+#     w.rank = row['rank']
+#     w.en = row['en'].downcase
+#     w.frequency = row['frequency']
+#     w.save
+#     p w
+#   end
+# end
+#
+# # puts "cleaning #{Word.count} words form DB..."
+# # Word.destroy_all
+# # puts Word.count
+#
+# # import_from_csv
+#
+# puts "Finish! now #{Word.count} words in DB"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#   def text_to_test
+#     %w(this is a test this is a car cars are awesome however what I do not know why what to write happy how ever need some beer soon i am in a friday feeling)
+#   end
+#
+#
+#
+#
+# def language_level(text_array)
+#   # variable declaration
+#   text = text_array
+#   array_result = []
+#   hash_result = {}
+#   i = 1
+#   # loop
+#   while text.length * 0.6 > array_result.length
+#     frequent_word = Word.where(rank: "#{i}").first.en
+#     if text.include?(frequent_word)
+#       how_many = text.count(frequent_word)
+#       how_many.times { array_result << i }
+#     end
+#     i = i + 1
+#   end
+#   # prepare clean return
+#   hash_result[:most_difficult] = Word.where(rank: "#{array_result.last}").first.en
+#   hash_result[:max_rank] = array_result.last
+#   hash_result[:arg_rank] = array_result.sum / array_result.length
+#   return  hash_result
+# end
+#
+# text = text_to_test
+# print language_level(text)
 
 
 # class FrequencyList
