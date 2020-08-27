@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "LanguageLearningWithYoutube"
+meta_title: "Language Learning With Youtube"
+meta_description: "Learn Languages with Youtube To find out if a video is adapted to your language level, enter the url from youtube in the search bar. You can also browse in our the list below to find viedos classed with language levels."
+meta_image: "language.png" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
