@@ -1,21 +1,46 @@
 class Word < ApplicationRecord
   has_many :cards
 
+  def to_subtitle(youtube_url)
+    youtube_id = youtube_url_to_id(youtube_url)
+    # youtube_id = "we4KiShNjlA" # youtube_url_to_id(youtube_url)
+
+    url = URI("https://subtitles-for-youtube.p.rapidapi.com/subtitles/#{youtube_id}.srt?lang=undefined&type=None&translated=None")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Get.new(url)
+    request["x-rapidapi-host"] = 'subtitles-for-youtube.p.rapidapi.com'
+    request["x-rapidapi-key"] = '26348ad96fmshb520859f06775c8p1a8369jsna80abfb1c8df'
+
+    response = http.request(request)
+    text = response.read_body
+    words_to_understand(text)
+  end
+  # print to_subtitle("https://www.youtube.com/watch?v=we4KiShNjlA")
+
+  def youtube_url_to_id(youtube_url)
+    url = youtube_url
+    video_id = url.match(/v=(.*)/)[1..-1]
+    video_id.first.to_s
+  end
+
   def words_to_understand(string)
     text = string
     text = transform_to_full_word(text)
     text = clean_string(text)
   end
 
-  private
-
   def clean_string(text)
-    text.scan(/[0-9]/)
-    text.scan(/\w+/)
+    # text.scan(/[0-9]/)
+    text.scan(/[a-z]+/)
   end
 
   def transform_to_full_word(text)
     text.downcase!
+    text.gsub!("&#39;", "'")
     text.gsub!("‘", "'")
     text.gsub!("'s", ' is')
     text.gsub!("i'm", 'i am')
