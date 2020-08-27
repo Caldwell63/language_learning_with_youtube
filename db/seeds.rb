@@ -5,6 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'tts'
+# Function that grabs the user input and plays it in English
+# And then displays what was said in the command line.
+# Allows us to easily just write "say()"
+def say(word)
+    s = "#{word}"
+    repeatTimes = 1
+    s.play("en", repeatTimes)
+    puts
+    puts "Successfully Said: #{word}"
+end
+
+say("anton hello")
+
+
 require 'csv'
 def import_from_csv
   csv_text = File.read(Rails.root.join('lib', 'seeds', 'data_frequent_words_en.csv'))

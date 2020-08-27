@@ -1,7 +1,7 @@
-<div class="container mx-auto">
-  <h2 class="text-4xl mb-4 font-medium text-center text-white">Create Account</h2>
+<div class="container mx-auto w-2/5">
+  <h2 class="text-4xl mb-4 font-medium text-center text-gray-700 ">Create Account</h2>
 
-  <div class="bg-white mb-4 border-blue-700 text-gray-700 border-2 rounded p-8 shadow-lg">
+  <div class="bg-white w-full  mb-4 border-blue-700 text-gray-700 border-2 rounded p-8 shadow-lg">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -21,15 +21,13 @@
       </div>
 
       <div class="actions">
-        <button class="bg-blue-600 p-2 px-5 text-white text-lg rounded">Sign Up</button>
+        <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Sign Up</button>
+        <%= render "devise/shared/links" %>
       </div>
     <% end %>
   </div>
 
   <div class="text-sm text-center">
-    <p>Already have an account? <%= link_to "Log in", new_session_path(resource_name), class: 'text-white' %></p>
+    <p>Already have an account? <%= link_to "Log in", new_session_path(resource_name), class: 'text-blue-500' %></p>
   </div>
 </div>
-
-
-<%= render "devise/shared/links" %>
