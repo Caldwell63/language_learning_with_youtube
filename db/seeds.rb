@@ -18,7 +18,7 @@ def say(word)
     puts "Successfully Said: #{word}"
 end
 
-say("anton hello")
+say("hello from anton")
 
 
 require 'csv'
