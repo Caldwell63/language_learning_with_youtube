@@ -1,12 +1,27 @@
 class Word < ApplicationRecord
   has_many :cards
 
-  def to_subtitle(youtube_url)
+  def get_level(youtube_url)
     youtube_id = youtube_url_to_id(youtube_url)
-    # youtube_id = "we4KiShNjlA" # youtube_url_to_id(youtube_url)
+    text_raw = to_subtitle(youtube_id)
+    text_clean = clean_string(text_raw)
+    text_array = string_to_array(text_clean)
+    result_hash = language_level(text_array)
+    create_video(youtube_id, result_hash, text_array)
+  end
 
+  def create_video(youtube_id, result_hash, text_array)
+    video = Video.new(
+    youtube_id: youtube_id,
+    title: "",
+    level: result_hash,
+    subtitle: text_array
+      )
+    video.save
+  end
+
+  def to_subtitle(youtube_id)
     url = URI("https://subtitles-for-youtube.p.rapidapi.com/subtitles/#{youtube_id}.srt?lang=undefined&type=None&translated=None")
-
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
@@ -16,26 +31,44 @@ class Word < ApplicationRecord
     request["x-rapidapi-key"] = '26348ad96fmshb520859f06775c8p1a8369jsna80abfb1c8df'
 
     response = http.request(request)
-    text = response.read_body
-    words_to_understand(text)
+    text_raw = response.read_body
   end
-  # print to_subtitle("https://www.youtube.com/watch?v=we4KiShNjlA")
 
   def youtube_url_to_id(youtube_url)
-    url = youtube_url
-    video_id = url.match(/v=(.*)/)[1..-1]
+    video_id = youtube_url.match(/v=(.*)/)[1..-1]
     video_id.first.to_s
   end
 
-  def words_to_understand(string)
-    text = string
-    text = transform_to_full_word(text)
-    text = clean_string(text)
+  def clean_string(string)
+    transform_to_full_word(string)
   end
 
-  def clean_string(text)
-    # text.scan(/[0-9]/)
+  def string_to_array(text)
     text.scan(/[a-z]+/)
+  end
+
+  def language_level(text_array)
+    # variable declaration
+    text = text_array
+    array_result = []
+    hash_result = {}
+    i = 1
+    frequent_words = Word.all
+    # loop
+    while text.length * 0.8 > array_result.length
+      frequent_word = frequent_words[i].en
+      # frequent_word = Word.where(rank: "#{i}").first.en
+      if text.include?(frequent_word)
+        how_many = text.count(frequent_word)
+        how_many.times { array_result << i }
+      end
+      i += 1
+    end
+    # prepare clean return
+    hash_result[:most_difficult] = frequent_words[i].en # Word.where(rank: "#{array_result.last}").first.en
+    hash_result[:max_rank] = array_result.last
+    hash_result[:arg_rank] = array_result.sum / array_result.length
+    return hash_result
   end
 
   def transform_to_full_word(text)
