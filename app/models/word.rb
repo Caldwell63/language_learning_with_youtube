@@ -56,7 +56,7 @@ class Word < ApplicationRecord
     i = 1
     frequent_words = Word.all
     # loop
-    while text.length * 0.8 > array_result.length || i < 4990
+    while text.length * 0.8 > array_result.length
       frequent_word = frequent_words[i].en
       # frequent_word = Word.where(rank: "#{i}").first.en
       if text.include?(frequent_word)
@@ -64,6 +64,7 @@ class Word < ApplicationRecord
         how_many.times { array_result << i }
       end
       i += 1
+      break if i > 4990
     end
     # prepare clean return
     hash_result[:most_difficult] = frequent_words[i].en # Word.where(rank: "#{array_result.last}").first.en
