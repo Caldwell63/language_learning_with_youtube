@@ -1,10 +1,14 @@
 .carousel-open:checked + .carousel-item {
         position: static;
         opacity: 100;
+        pointer-events: auto;
     }
+
+
     .carousel-item {
         -webkit-transition: opacity 0.8s ease-out;
         transition: opacity 0.8s ease-out;
+        pointer-events: none;
     }
     #carousel-1:checked ~ .control-1,
     #carousel-2:checked ~ .control-2,

@@ -33,20 +33,14 @@ import { each } from "jquery";
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
-  
-  
-
-  // SpeechSynthesisVoice.lang = "en"
-  const button = document.querySelector('.word');
-  console.log(button)
-  // button.forEach((word) => {
-    button.addEventListener('click', (event) => {
-      
-      const word = button.innerText;
-      const test = new SpeechSynthesisUtterance(word)  
-      const synth = window.speechSynthesis;
-      synth.speak(test)
+  const buttons = document.querySelectorAll('.speak');
+    buttons.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        const word = button.dataset.word;
+        const test = new SpeechSynthesisUtterance(word)
+        const synth = window.speechSynthesis;
+        test.lang = "en"
+        synth.speak(test)
+      });
     });
-});
+  });
