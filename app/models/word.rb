@@ -8,13 +8,14 @@ class Word < ApplicationRecord
     text_array = string_to_array(text_clean)
     result_hash = language_level(text_array)
     create_video(youtube_id, result_hash, text_array)
+    result_hash
   end
 
   def create_video(youtube_id, result_hash, text_array)
     video = Video.new(
     youtube_id: youtube_id,
     title: "",
-    level: result_hash,
+    level: result_hash[:max_rank].to_s,
     subtitle: text_array
       )
     video.save
@@ -55,7 +56,7 @@ class Word < ApplicationRecord
     i = 1
     frequent_words = Word.all
     # loop
-    while text.length * 0.8 > array_result.length
+    while text.length * 0.8 > array_result.length || i < 4990
       frequent_word = frequent_words[i].en
       # frequent_word = Word.where(rank: "#{i}").first.en
       if text.include?(frequent_word)
@@ -74,11 +75,11 @@ class Word < ApplicationRecord
   def transform_to_full_word(text)
     text.downcase!
     text.gsub!("&#39;", "'")
-    text.gsub!("‘", "'")
+    # text.gsub!("‘", "'")
     text.gsub!("'s", ' is')
     text.gsub!("i'm", 'i am')
-    text.gsub!("i‘m", 'i am')
-    text.gsub!("’ll", ' will')
+    # text.gsub!("i‘m", 'i am')
+    # text.gsub!("’ll", ' will')
     text.gsub!("'ll", ' will')
     text.gsub!("dont't", 'do not')
     text.gsub!("'ve", ' have')
