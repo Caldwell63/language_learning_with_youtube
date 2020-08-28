@@ -1,6 +1,11 @@
 .carousel-open:checked + .carousel-item {
         position: static;
         opacity: 100;
+        pointer-events: auto;
+    }
+
+    .carousel-item {
+        pointer-events: none;
     }
     .carousel-item {
         -webkit-transition: opacity 0.6s ease-out;
@@ -27,3 +32,5 @@
     #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
         color: #2b6cb0;  /*Set to match the Tailwind colour you want the active one to be */
     }
+
+

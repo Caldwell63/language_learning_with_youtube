@@ -27,7 +27,6 @@ import "../channels/script.js"
 // External imports
 import "bootstrap";
 import 'alpinejs';
-import { each } from "jquery";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -39,14 +38,17 @@ document.addEventListener('turbolinks:load', () => {
   
 
   // SpeechSynthesisVoice.lang = "en"
-  const button = document.querySelector('.word');
-  console.log(button)
-  // button.forEach((word) => {
+
+  const buttons = document.querySelectorAll('.speak');
+  buttons.forEach((button) => {
     button.addEventListener('click', (event) => {
-      
-      const word = button.innerText;
+      console.log(button)
+      const word = button.dataset.word;
       const test = new SpeechSynthesisUtterance(word)  
       const synth = window.speechSynthesis;
+      test.lang = "en"
       synth.speak(test)
     });
+  });
 });
+// })
