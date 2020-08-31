@@ -19,6 +19,7 @@ require("channels")
 // Stylesheets
 import "../stylesheets/application.scss";
 import "../channels/script.js"
+import "../channels/slider.js"
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
@@ -33,10 +34,10 @@ import { each } from "jquery";
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
-  const buttons = document.querySelectorAll('.speak');
-    buttons.forEach((button) => {
-      button.addEventListener('click', (event) => {
-        const word = button.dataset.word;
+  const divs = document.querySelectorAll('.word');
+    divs.forEach((div) => {
+      div.addEventListener('click', (event) => {
+        const word = div.textContent;
         const test = new SpeechSynthesisUtterance(word)
         const synth = window.speechSynthesis;
         test.lang = "en"
