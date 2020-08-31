@@ -23,7 +23,8 @@ class Word < ApplicationRecord
   end
 
   def to_subtitle(youtube_id)
-    url = URI("https://subtitles-for-youtube.p.rapidapi.com/subtitles/#{youtube_id}.srt?lang=undefined&type=None&translated=None")
+    url = URI("https://subtitles-for-youtube.p.rapidapi.com/subtitles/#{youtube_id}.srt?lang=en&type=None&translated=Translated")
+
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
@@ -34,6 +35,7 @@ class Word < ApplicationRecord
 
     response = http.request(request)
     text_raw = response.read_body
+    text_raw == "" ? "Video has no subtitles" : text_raw
   end
 
   def youtube_url_to_id(youtube_url)
