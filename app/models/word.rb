@@ -7,6 +7,7 @@ class Word < ApplicationRecord
     text_clean = clean_string(text_raw)
     text_array = string_to_array(text_clean)
     result_hash = language_level(text_array)
+    return "" if  result_hash == nil
     create_video(youtube_id, result_hash, text_array)
     result_hash
   end
