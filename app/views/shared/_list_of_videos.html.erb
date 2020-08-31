@@ -54,10 +54,15 @@
               <%  @videos.each do |video|%>
                 <tr>
                   <td class="px-6 py-4 whitespace-no-wrap">
-                    <div class="text-sm leading-5 text-gray-900">Video
-                      <%= video.id %></div>
-                    <%= link_to video_path(video) do %>
-                    <div class="text-sm leading-5 text-gray-500">MIT OpenCourseWare - 2.161.346 views</div>
+                    <div class="flex">
+                      <img src="<%= video.thumbnails %>" alt="" class="w-1/12 mr-3">
+                      <div>
+                        <div class="text-sm leading-5 text-gray-900">
+                          <%= video.title %></div>
+                        <%= link_to video_path(video) do %>
+                        <div class="text-sm leading-5 text-gray-500"><%= video.channel %> - 2.161.346 views</div>
+                      </div>
+                    </div>
                   <% end %>
                 </td>
                 <td class="ml-4 px-6 py-4 whitespace-no-wrap">
