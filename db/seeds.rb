@@ -1,13 +1,4 @@
-require 'tts'
-def say(word)
-    s = "#{word}"
-    repeatTimes = 1
-    s.play("en", repeatTimes)
-    puts
-    puts "Successfully Said: #{word}"
-end
 
-say("hello from anton")
 
 #
 # require 'csv'
