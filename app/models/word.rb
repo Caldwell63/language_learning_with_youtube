@@ -4,12 +4,14 @@ class Word < ApplicationRecord
   def get_level(youtube_url)
     youtube_id = youtube_url_to_id(youtube_url)
     text_raw = to_subtitle(youtube_id)
+    # raise
     text_clean = clean_string(text_raw)
     text_array = string_to_array(text_clean)
     result_hash = language_level(text_array)
     return "" if  result_hash == nil
     create_video(youtube_id, result_hash, text_array)
     result_hash
+
   end
 
   def create_video(youtube_id, result_hash, text_array)
