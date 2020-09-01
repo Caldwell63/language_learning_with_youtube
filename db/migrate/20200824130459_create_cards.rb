@@ -5,7 +5,6 @@ class CreateCards < ActiveRecord::Migration[6.0]
       t.date :known_on
       t.references :user, null: false, foreign_key: true
       t.references :word, null: false, foreign_key: true
-
       t.timestamps
     end
   end
