@@ -44,36 +44,12 @@ puts "Finish! now #{Word.count} words in DB"
 
 channels = "https://www.youtube.com/channel/UCdEPvAKHIY0bXJqW71mIANg"
 
-Video.destroy_all
+# Video.destroy_all
 
 programm = Word.new
 
-a1.each do |video|
-  programm.get_level(video)
-  Video.last.training = "A1"
-end
 
-a2.each do |video|
-  programm.get_level(video)
-  Video.last.training = "A2"
-end
-
-b1.each do |video|
-  programm.get_level(video)
-  Video.last.training = "B1"
-end
-
-b2.each do |video|
-  programm.get_level(video)
-  Video.last.training = "B2"
-end
-
-c1.each do |video|
-  programm.get_level(video)
-  Video.last.training = "C1"
-end
-
-a1 = ["https://www.youtube.com/watch?v=erjMgola4fQ",
+a_one = ["https://www.youtube.com/watch?v=erjMgola4fQ",
       "https://www.youtube.com/watch?v=WFRR0zC70-0",
       "https://www.youtube.com/watch?v=RP1AL2DU6vQ",
       "https://www.youtube.com/watch?v=akZrk7jF5Jo",
@@ -121,3 +97,28 @@ c1 = ["https://youtu.com/F-175C95uGE",
       "https://youtu.com/rUdHoEiydX0",
       "https://youtu.com/nhZ4JCrOwe0"
      ]
+
+a_one.each do |video|
+  programm.get_level(video)
+  Video.last.training = "A1"
+end
+
+a2.each do |video|
+  programm.get_level(video)
+  Video.last.training = "A2"
+end
+
+b1.each do |video|
+  programm.get_level(video)
+  Video.last.training = "B1"
+end
+
+b2.each do |video|
+  programm.get_level(video)
+  Video.last.training = "B2"
+end
+
+c1.each do |video|
+  programm.get_level(video)
+  Video.last.training = "C1"
+end

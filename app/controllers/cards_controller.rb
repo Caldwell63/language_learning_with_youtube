@@ -24,16 +24,13 @@ class CardsController < ApplicationController
   end
 
   def fillout
-    word_en = self.en
-    self.add_gif(word_en)
-    self.add_translation(word_en)
+    word_en = self.word.en
+    self.gif = self.get_gif(word_en)
+    # self.add_translation(word_en)
     self.save
   end
 
-  def add_gif(word_en)
-    gif = self.get_gif(word_en)
-    self.gif = gif
-  end
+
 
   def add_translation(word_en)
     translate_to = self.user.native_language

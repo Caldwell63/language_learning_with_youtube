@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_31_153809) do
+ActiveRecord::Schema.define(version: 2020_09_01_175027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_08_31_153809) do
     t.bigint "word_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "gif"
     t.index ["user_id"], name: "index_cards_on_user_id"
     t.index ["word_id"], name: "index_cards_on_word_id"
   end
