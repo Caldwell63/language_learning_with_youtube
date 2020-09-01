@@ -1,27 +1,28 @@
 
-Card.destroy_all
+# Card.destroy_all
 
-puts 'Creating card1...'
-card1 = Card.new(
-  stage: 12,
-  known_on: Date.new(2020,12,02),
-  word: Word.first,
-  user_id: 2
-  )
+# puts 'Creating card1...'
+# card1 = Card.new(
+#   stage: 1,
+#   known_on: Date.new(2020,12,02),
+#   word: Word.first,
+#   user_id: 2
+#   )
 
-card1.save!
+# card1.save!
 
-card2 = Card.new(
-  stage: 12,
-  known_on: Date.new(2020,12,02),
-  word: Word.second,
-  user_id: 2
-  )
-  card2.save!
+# card2 = Card.new(
+#   stage: 1,
+#   known_on: Date.new(2020,12,03),
+#   word: Word.second,
+#   user_id: 2
+#   )
+#   card2.save!
 
 
 
-require 'csv'
+# require 'csv'
+
 def import_from_csv
   csv_text = File.read(Rails.root.join('lib', 'seeds', 'data_frequent_words_en.csv'))
   csv = CSV.parse(csv_text, :headers => true)
