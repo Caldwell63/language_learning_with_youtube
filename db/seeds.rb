@@ -1,15 +1,25 @@
-# def seed_cards
-#   # this is still pseudo code and needs to be
-#   puts 'Creating card1...'
-#   card1 = Card.new(
-#     stage: 12,
-#     known_on: 20/12/02,
-#     word_id: 1,
-#     user_id: 2
-#     )
-#   card1.save!
-#   puts 'Finishished!'
-# end
+
+Card.destroy_all
+
+puts 'Creating card1...'
+card1 = Card.new(
+  stage: 12,
+  known_on: Date.new(2020,12,02),
+  word: Word.first,
+  user_id: 2
+  )
+
+card1.save!
+
+card2 = Card.new(
+  stage: 12,
+  known_on: Date.new(2020,12,02),
+  word: Word.second,
+  user_id: 2
+  )
+  card2.save!
+
+
 
 require 'csv'
 def import_from_csv
