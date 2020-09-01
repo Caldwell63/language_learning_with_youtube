@@ -34,11 +34,12 @@ import { each } from "jquery";
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
-  const divs = document.querySelectorAll('.word');
-    divs.forEach((div) => {
-      div.addEventListener('click', (event) => {
-        const word = div.textContent;
-        const test = new SpeechSynthesisUtterance(word)
+  const words = document.querySelectorAll('.word');
+    words.forEach((word) => {
+      word.addEventListener('click', (event) => {
+        const text = word.textContent;
+        console.log(text)
+        const test = new SpeechSynthesisUtterance(text)
         const synth = window.speechSynthesis;
         test.lang = "en"
         synth.speak(test)
