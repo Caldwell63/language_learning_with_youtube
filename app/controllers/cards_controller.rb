@@ -1,24 +1,29 @@
 class CardsController < ApplicationController
   def index
-
+    @cards = Card.all
   end
-  def show
 
+  def show
+    @card = Card.find(params[:id])
   end
 
   def new
-    @user = User.find(params[:user_id])
-    @review = Review.new
+    @card = Card.new
+    @card = Card.new(card_params)
+    @card.save
   end
 
   def create
 
+
     fillout
+
+
   end
 
   def update
-
   end
+
 
   def fillout
     word_en = self.en
@@ -35,5 +40,11 @@ class CardsController < ApplicationController
   def add_translation(word_en)
     translate_to = self.user.#motherlanguage
     # api_to translate word_en
+
+  # private
+
+  def card_params
+    params.require(:card).permit(:stage, :known_on)
+
   end
 end
