@@ -19,29 +19,29 @@
 			this.actions();
 		},
 		_slideTo: function( slide ) {
-			var currentSlide = this.slides[slide];
+			let currentSlide = this.slides[slide];
 			currentSlide.style.opacity = 1;
 
-			for( var i = 0; i < this.slides.length; i++ ) {
-				var slide = this.slides[i];
+			for( let i = 0; i < this.slides.length; i++ ) {
+				let slide = this.slides[i];
 				if( slide !== currentSlide ) {
 					slide.style.opacity = 0;
 				}
 			}
 		},
 		setup: function() {
-			var slides = this.slides,
+			let slides = this.slides,
 				len = slides.length,
 				i;
 			for( i = 0; i < len; ++i ) {
-				var slide = slides[i],
+				let slide = slides[i],
 					src = slide.getAttribute( "data-image" );
-
-				    slide.style.backgroundImage = "url(" + src + ")";
+					console.log(src);
+			    slide.style.backgroundImage = "url(" + src + ")";
 			}
 		},
 		actions: function() {
-			var self = this;
+			let self = this;
 
 			self.el.addEventListener( "mouseover", function() {
 				self.nav.style.display = "block";
@@ -55,33 +55,33 @@
 
 			self.next.addEventListener( "click", function() {
 				self.index++;
-				self.previous.style.display = "block";
 
-				if( self.index == self.total - 1 ) {
+				if (self.index == self.total) self.index = 0;
+
+				if( self.index == self.total -	 1 ) {
 					self.index = self.total - 1;
-					self.next.style.display = "none";
 				}
-
 				self._slideTo( self.index );
 
 			}, false);
 
 			self.previous.addEventListener( "click", function() {
 				self.index--;
-				self.next.style.display = "block";
+
+				if (self.index < 0) self.index = self.total - 1;
 
 				if( self.index == 0 ) {
 					self.index = 0;
 					self.previous.style.display = "none";
 				}
 
-				self._slideTo( self.index );
+				self._slideTo(self.index );
 
 			}, false);
 
 			document.body.addEventListener( "keydown", function( e ) {
-				var code = e.keyCode;
-				var evt = new Event( "click" );
+				let code = e.keyCode;
+				let evt = new Event( "click" );
 
 				if( code == 39 ) {
 					self.next.dispatchEvent( evt );
@@ -98,8 +98,11 @@
 
 	document.addEventListener( "DOMContentLoaded", function() {
 
-		var slider = new Slideshow( "#main-slider" );
+		const element = document.querySelector("#main-slider");
 
+		if (element) {
+			new Slideshow( "#main-slider" );
+		}
 	});
 
 
