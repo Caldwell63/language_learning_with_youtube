@@ -11,14 +11,25 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
 
     <%= favicon_link_tag asset_path('undraw_online_video_ivvq.png') %>
-    <meta name="description" content="Learn Languages with Youtube To find out if a video is adapted to your language level, enter the url from youtube in the search bar. You can also browse in our the list below to find viedos classed with language levels.">
+    <meta name="description" content="<%= meta_description %>">
     <meta property="og:image" content="<%= image_url('meta_image.png') %>">
 
-  </head>
+<meta property="og:title" content="<%= meta_title %>" />
+<meta property="og:type" content="website" />
+<%
+=begin%>
+ <meta property="og:url" content= <%= "http://www.easy-language-learning-with-youtube.club/videos/#{@video.youtube_id}" %> /> 
+<%
+=end%>
+<meta property="og:description" content="<%= meta_description %>" />
+<meta property="og:site_name" content="<%= meta_title %>" />
+
+</head>
 
   <body>
     <%= render 'shared/navbar' %>
     <%= yield %>
     <%= render 'shared/footer' %>
   </body>
+
 </html>
