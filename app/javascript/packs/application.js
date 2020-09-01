@@ -18,7 +18,7 @@ require("channels")
 
 // Stylesheets
 import "../stylesheets/application.scss";
-import "../channels/script.js"
+import "../channels/flipper.js"
 import "../channels/slider.js"
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION

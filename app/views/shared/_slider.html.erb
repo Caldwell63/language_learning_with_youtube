@@ -1,8 +1,4 @@
-<!-- <div class="flex align-center w-full max-w-xs mx-auto mt-16">
-  <div class="mt-1 relative shadow-sm">
-    <input id="text" class="rounded-md form-input p-3 block w-full sm:text-sm sm:leading-5" placeholder="create a word">
-  </div>
-</div> -->
+<!-- <div class="flex align-center w-full max-w-xs mx-auto mt-16"> <div class="mt-1 relative shadow-sm"> <input id="text" class="rounded-md form-input p-3 block w-full sm:text-sm sm:leading-5" placeholder="create a word"> </div> </div> -->
 <div class="container w-1/4 mt-16 mx-auto">
   <div class="flex items-center justify-between mt-4 sm:mt-0 sm:flex-shrink-0">
     <h3 class=" text-2xl text-gray-500">Cards</h3>
@@ -18,101 +14,114 @@
   <div class="slider mt-2" id="main-slider">
     <!-- outermost container element -->
 
-    <div class="slider-wrapper pointer-events-none">
-      <!-- innermost wrapper element -->
+    <div class="front">
+      The front face
+    </div>
 
-      <div class="slide  absolute opacity-0">
-        <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
-          <div class="flex-shrink-0">
-            <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-          </div>
-          <div class="flex-1 bg-white p-6 flex flex-col justify-between">
-            <div class="flex-1">
-              <div class="flex items-center justify-between h-16 word mt-2 text-3xl leading-7 font-semibold text-gray-900">
-                <span>Car</span>
-                <i class="cursor-pointer text-gray-600 text-xl fas fa-volume-up"></i>
+    <div class="back">
+      The back face
+    </div>
+
+    <div class="flip-container">
+      <div id="card" class="flipper">
+
+        <div class="slider-wrapper pointer-events-none">
+          <!-- innermost wrapper element -->
+
+          <div class="slide  absolute opacity-0">
+            <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+              <div class="flex-shrink-0">
+                <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
               </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- slides -->
-
-      <div class="slide absolute  opacity-0">
-        <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
-          <div class="flex-shrink-0">
-            <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="">
-          </div>
-          <div class="flex-1 bg-white p-6 flex flex-col justify-between">
-            <div class="flex-1">
-              <div class="flex items-center justify-between word h-16  mt-2 text-3xl leading-7 font-semibold text-gray-900">
-                <span>Hello</span>
-                <i class="cursor-pointer text-gray-600 text-xl fas fa-volume-up"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- </div> -->
-
-      <div class="slide absolute opacity-0">
-        <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
-          <div class="flex-shrink-0">
-            <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="">
-          </div>
-          <div class="flex-1 bg-white p-6 flex flex-col justify-between">
-            <div class="flex-1">
-              <div class="flex items-center justify-between word mt-2 h-16  text-3xl leading-7 font-semibold text-gray-900">
-                <span>Data</span>
-                <i class="cursor-pointer text-gray-600 text-xl fas fa-volume-up"></i>
+              <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+                <div class="flex-1">
+                  <div class="flex items-center justify-between h-16 word mt-2 text-3xl leading-7 font-semibold text-gray-900">
+                    <span>Car</span>
+                    <i class="cursor-pointer text-gray-600 text-xl fas fa-volume-up"></i>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- slides -->
 
-    <div class="slider-nav">
-      <!-- "Previous" and "Next" actions -->
-      <button class="slider-previous"></button>
-      <button class="slider-next"></button>
+    <div class="slide absolute  opacity-0">
+      <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+        <div class="flex-shrink-0">
+          <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="">
+        </div>
+        <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+          <div class="flex-1">
+            <div class="flex items-center justify-between word h-16  mt-2 text-3xl leading-7 font-semibold text-gray-900">
+              <span>Hello</span>
+              <i class="cursor-pointer text-gray-600 text-xl fas fa-volume-up"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+
+    <div class="slide absolute opacity-0">
+      <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+        <div class="flex-shrink-0">
+          <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="">
+        </div>
+        <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+          <div class="flex-1">
+            <div class="flex items-center justify-between word mt-2 h-16  text-3xl leading-7 font-semibold text-gray-900">
+              <span>Data</span>
+              <i class="cursor-pointer text-gray-600 text-xl fas fa-volume-up"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <div class="slider-nav">
+    <!-- "Previous" and "Next" actions -->
+    <button class="slider-previous"></button>
+    <button class="slider-next"></button>
+  </div>
+</div>
 </div>
 
 <span class="slider-nav relative z-0 mt-1 flex items-end mt-2 justify-center">
-  <button
-    class="slider-previous relative m-1 items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150">
-    <svg class="h-5 w-5" viewbox="0 0 20 20" fill="currentColor">
-      <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/>
-    </svg>
-  </button>
-  <div class="flex flex-col">
-    <button
-      type="button"
-      class="relative m-1 inline-flex items-center px-2 py-2 rounded-t-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150"
-      aria-label="Expand">
-      <svg class="h-5 w-5 transform rotate-180" viewbox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-      </svg>
-    </button>
-    <button
-      type="button"
-      class="relative m-1 rotate inline-flex items-center px-2 py-2 rounded-b-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150"
-      aria-label="Expand">
-      <svg class="h-5 w-5 " viewbox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-      </svg>
-    </button>
-    <table></table>
-  </div>
+<button
+  class="slider-previous relative m-1 items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150">
+  <svg class="h-5 w-5" viewbox="0 0 20 20" fill="currentColor">
+    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/>
+  </svg>
+</button>
+<div class="flex flex-col">
   <button
     type="button"
-    class="relative inline-flex m-1 items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150"
-    aria-label="Next">
-    <svg class="h-5 w-5" viewbox="0 0 20 20" fill="currentColor">
-      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+    class="relative m-1 inline-flex items-center px-2 py-2 rounded-t-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150"
+    aria-label="Expand">
+    <svg class="h-5 w-5 transform rotate-180" viewbox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
     </svg>
   </button>
+  <button
+    type="button"
+    class="relative m-1 rotate inline-flex items-center px-2 py-2 rounded-b-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150"
+    aria-label="Expand">
+    <svg class="h-5 w-5 " viewbox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+    </svg>
+  </button>
+  <table></table>
+</div>
+<button
+  type="button"
+  class="relative inline-flex m-1 items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150"
+  aria-label="Next">
+  <svg class="h-5 w-5" viewbox="0 0 20 20" fill="currentColor">
+    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+  </svg>
+</button>
 </span>
