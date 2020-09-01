@@ -21,7 +21,7 @@
 
 
 
-# require 'csv'
+require 'csv'
 
 def import_from_csv
   csv_text = File.read(Rails.root.join('lib', 'seeds', 'data_frequent_words_en.csv'))
