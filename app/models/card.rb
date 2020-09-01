@@ -1,7 +1,6 @@
 require 'net/http'
 require 'json'
 
-
 class Card < ApplicationRecord
   belongs_to :user
   belongs_to :word
