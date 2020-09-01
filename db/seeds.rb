@@ -22,7 +22,6 @@
 
 
 require 'csv'
-
 def import_from_csv
   csv_text = File.read(Rails.root.join('lib', 'seeds', 'data_frequent_words_en.csv'))
   csv = CSV.parse(csv_text, :headers => true)
@@ -36,45 +35,43 @@ def import_from_csv
   end
 end
 
-puts "cleaning #{Word.count} words form DB..."
-Word.destroy_all
-puts Word.count
-
-import_from_csv
-
+#puts "cleaning #{Word.count} words form DB..."
+#Word.destroy_all
+#puts Word.count
+# import_from_csv
 puts "Finish! now #{Word.count} words in DB"
 
 
 channels = "https://www.youtube.com/channel/UCdEPvAKHIY0bXJqW71mIANg"
 
-# Video.destroy_all
+Video.destroy_all
 
-# programm = Word.new
+programm = Word.new
 
-# a1.each do |video|
-#   programm.get_level(video)
-#   Video.last.training = "A1"
-# end
+a1.each do |video|
+  programm.get_level(video)
+  Video.last.training = "A1"
+end
 
-# # a2.each do |video|
-# #   programm.get_level(video)
-# #   Video.last.training = "A2"
-# # end
+a2.each do |video|
+  programm.get_level(video)
+  Video.last.training = "A2"
+end
 
-# # b1.each do |video|
-# #   programm.get_level(video)
-# #   Video.last.training = "B1"
-# # end
+b1.each do |video|
+  programm.get_level(video)
+  Video.last.training = "B1"
+end
 
-# # b2.each do |video|
-# #   programm.get_level(video)
-# #   Video.last.training = "B2"
-# # end
+b2.each do |video|
+  programm.get_level(video)
+  Video.last.training = "B2"
+end
 
-# # c1.each do |video|
-# #   programm.get_level(video)
-# #   Video.last.training = "C1"
-# # end
+c1.each do |video|
+  programm.get_level(video)
+  Video.last.training = "C1"
+end
 
 a1 = ["https://www.youtube.com/watch?v=erjMgola4fQ",
       "https://www.youtube.com/watch?v=WFRR0zC70-0",

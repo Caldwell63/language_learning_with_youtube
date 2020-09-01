@@ -31,12 +31,12 @@ class CardsController < ApplicationController
   end
 
   def add_gif(word_en)
-    api call on gifi #{word_en}
+    gif = self.get_gif(word_en)
     self.gif = gif
   end
 
   def add_translation(word_en)
-    translate_to = self.user #motherlanguage
+    translate_to = self.user.native_language
     # api_to translate word_en
   end
 
