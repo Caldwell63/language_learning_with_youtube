@@ -6,6 +6,8 @@ class Word < ApplicationRecord
     where.not(id: words_with_cards.pluck(:id))
   end
 
+
+
   def to_subtitle_v2(youtube_id)
     url = "http://video.google.com/timedtext?lang=en&v=#{youtube_id}"
     html_file = open(url).read

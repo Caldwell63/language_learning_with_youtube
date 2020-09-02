@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
   def index
-    @cards = current_user.cards
-    @card = Card.new
+    @cards = current_user.cards.includes(:word)
+    @new_card = Card.new
   end
 
   def show
@@ -13,7 +13,6 @@ class CardsController < ApplicationController
 
   def create
     card = Card.new(card_params)
-    card.user = current_user
     card.fillout
     if card.save!
       redirect_to cards_path
@@ -28,9 +27,7 @@ class CardsController < ApplicationController
   def destroy
     @card = Card.find(params[:id])
     @card.destroy
-    respond_to do |format|
-       format.html { redirect_to cards_url notice: 'Card was successfully deleted.' }
-   end
+    flash[:notice] = 'Card was successfully deleted.'
     redirect_to cards_path
   end
 
@@ -50,6 +47,6 @@ class CardsController < ApplicationController
   private
 
   def card_params
-    params.require(:card).permit(:word_id)
+    params.require(:card).permit(:word_id, :user_id)
   end
 end
