@@ -1,10 +1,18 @@
 class Word < ApplicationRecord
   has_many :cards, dependent: :destroy
 
-  # scope :available_for, ->(user) do
-  #   words_with_cards = user.words
-  #   where.not(id: words_with_cards.pluck(:id))
-  # end
+  scope :available_for, ->(user) do
+    words_with_cards = user.words
+    where.not(id: words_with_cards.pluck(:id))
+  end
+
+  def to_subtitle_v2(youtube_id)
+    url = "http://video.google.com/timedtext?lang=en&v=#{youtube_id}"
+    html_file = open(url).read
+
+    #needs to be completed
+  end
+end
 
 
   # def get_level(youtube_url)
@@ -40,12 +48,6 @@ class Word < ApplicationRecord
   # end
 
 
-  def to_subtitle_v2(youtube_id)
-    url = "http://video.google.com/timedtext?lang=en&v=#{youtube_id}"
-    html_file = open(url).read
-
-    #needs to be completed
-  end
 
   # def youtube_url_to_id(youtube_url)
   #   video_id = youtube_url.match(/v=(.*)/)[1..-1]
@@ -217,4 +219,4 @@ class Word < ApplicationRecord
   #   text.gsub!("you've", "you have")
   #   return text
   # end
-end
+
