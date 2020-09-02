@@ -15,6 +15,7 @@ class CardsController < ApplicationController
   def create
     card = Card.new(card_params)
     card.user = current_user
+    card.fillout
     card.save!
     redirect_to cards_path
   end
@@ -23,19 +24,7 @@ class CardsController < ApplicationController
 
   end
 
-  def fillout
-    word_en = self.word.en
-    self.gif = self.get_gif(word_en)
-    # self.add_translation(word_en)
-    self.save
-  end
 
-
-
-  def add_translation(word_en)
-    translate_to = self.user.native_language
-    # api_to translate word_en
-  end
 
   private
 
