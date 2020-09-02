@@ -1,10 +1,10 @@
 class Word < ApplicationRecord
   has_many :cards, dependent: :destroy
 
-  # scope :available_for, ->(user) do
-  #   words_with_cards = user.words
-  #   where.not(id: words_with_cards.pluck(:id))
-  # end
+  scope :available_for, ->(user) do
+    words_with_cards = user.words
+    where.not(id: words_with_cards.pluck(:id))
+  end
 
   def get_level(youtube_url)
     # raise
