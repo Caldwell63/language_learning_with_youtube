@@ -1,23 +1,34 @@
 
-# Card.destroy_all
+Card.destroy_all
 
-# puts 'Creating card1...'
-# card1 = Card.new(
-#   stage: 1,
-#   known_on: Date.new(2020,12,02),
-#   word: Word.first,
-#   user_id: 2
-#   )
 
-# card1.save!
 
-# card2 = Card.new(
-#   stage: 1,
-#   known_on: Date.new(2020,12,03),
-#   word: Word.second,
-#   user_id: 2
-#   )
-#   card2.save!
+puts 'Creating card1...'
+card1 = Card.new(
+  stage: 1,
+  known_on: Date.new(2020,12,02),
+  word: Word.first,
+  user_id: 2
+  )
+
+card1.save!
+
+card2 = Card.new(
+  stage: 2,
+  known_on: Date.new(2020,12,03),
+  word: Word.second,
+  user_id: 2
+  )
+  card2.save!
+
+
+  card3 = Card.new(
+    stage: 3,
+    known_on: Date.new(2020,12,03),
+    word: Word.last,
+    user_id: 2
+    )
+  card3.save!
 
 
 

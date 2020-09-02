@@ -20,10 +20,9 @@
 	background-size: cover;
 	opacity: 0;
 	transition: opacity 500ms linear;
-	pointer-events: none;
 }
 
 .slider-wrapper > .slide:first-child {
 	opacity: 1;
-	pointer-events: auto;
+	z-index: 1;
 }
