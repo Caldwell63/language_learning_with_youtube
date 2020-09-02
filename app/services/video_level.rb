@@ -8,6 +8,7 @@ class VideoLevel
     clean_subtitles
     extract_words
     level_by_words
+    create_video
   end
 
 
@@ -37,7 +38,18 @@ class VideoLevel
   end
 
   def level_by_words
-    AnalizeLevel.new(@words).call
+    @level = AnalizeLevel.new(@words).call
+  end
+
+  def create_video
+    video = Video.new(
+    youtube_id: @youtube_id,
+    level: @level,
+    subtitle: @subtitles
+      )
+
+    video.save
+    video.add_info
   end
 
   def clean_subtitles
