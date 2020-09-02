@@ -68,3 +68,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "tts", "~> 0.8.2"
+
+gem "awesome_print", "~> 1.8"

@@ -23,6 +23,31 @@
         <iframe src="<%= "https://www.youtube.com/embed/" %><%= @video.youtube_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
+
+      <!-- /Word suggestions -->
+    <div class="w-9/12 mx-auto pb-12 px-4 sm:px-6 lg:px-8">
+      <div class="bg-white">
+        <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+          <p class="text-center text-base leading-6 font-semibold uppercase text-gray-600 tracking-wider">
+          Add words to your flash cards          </p>
+
+          <% ["This", "is", "a", "test" ].each do |word|%>
+
+          <span class="inline-flex items-center px-4 py-1 rounded-full text-xs font-medium leading-4 bg-indigo-100 text-indigo-800">
+            <%= word %>
+            <button type="button" class="flex-shrink-0 ml-1.5 inline-flex text-indigo-500 focus:outline-none focus:text-indigo-700" aria-label="Remove small badge">
+              <svg class="h-2 w-2" stroke="currentColor" fill="none" viewBox="0 0 8 8">
+                <path stroke-linecap="round" stroke-width="1.5" d="M1 1l6 6m0-6L1 7" />
+              </svg>
+            </button>
+          </span>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <!-- /Affiliate links -->
+
     <div class="w-9/12 mx-auto pb-12 px-4 sm:px-6 lg:px-8">
       <div class="bg-white">
         <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">

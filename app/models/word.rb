@@ -8,7 +8,6 @@ class Word < ApplicationRecord
 
   def get_level(youtube_url)
     # raise
-
     youtube_id = youtube_url_to_id(youtube_url)
     text_raw = to_subtitle_v1(youtube_id)
     text_clean = clean_string(text_raw)
@@ -44,7 +43,6 @@ class Word < ApplicationRecord
 
     response = http.request(request)
     text_raw = response.read_body
-    text_raw == "" ? "Video has no subtitles" : text_raw
   end
 
 
@@ -96,11 +94,9 @@ class Word < ApplicationRecord
   def transform_to_full_word(text)
     text.downcase!
     text.gsub!("&#39;", "'")
-    # text.gsub!("‘", "'")
+    text.gsub!("‘", "'")
     text.gsub!("'s", ' is')
     text.gsub!("i'm", 'i am')
-    # text.gsub!("i‘m", 'i am')
-    # text.gsub!("’ll", ' will')
     text.gsub!("'ll", ' will')
     text.gsub!("dont't", 'do not')
     text.gsub!("'ve", ' have')

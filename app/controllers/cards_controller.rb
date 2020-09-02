@@ -14,6 +14,7 @@ class CardsController < ApplicationController
   def create
     card = Card.new(card_params)
     card.user = current_user
+    card.fillout
     if card.save!
       redirect_to cards_path
     else
@@ -45,6 +46,7 @@ class CardsController < ApplicationController
     translate_to = user.native_language
     # api_to translate word_en
   end
+
 
   private
 
