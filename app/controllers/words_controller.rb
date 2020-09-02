@@ -11,4 +11,5 @@ class WordsController < ApplicationController
 
     render json: words.order(:en).limit(10)
   end
+
 end
