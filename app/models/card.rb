@@ -24,7 +24,6 @@ class Card < ApplicationRecord
 
 
   def get_gif(word_en)
-
     api_key = ENV['GIFY_API_KEY']
     url = "http://api.giphy.com/v1/gifs/search?q=#{word_en}&api_key=#{api_key}&limit=1"
 

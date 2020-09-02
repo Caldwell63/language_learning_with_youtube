@@ -5,7 +5,7 @@ const initSelect2 = () => {
   const user_id = document.querySelector('#card_user_id').value
   $('#card_word_id').select2({
     ajax: {
-      url: 'http://localhost:3000/words',
+      url: '/words',
       dataType: 'json',
       data: function(params) {
         var query = {
