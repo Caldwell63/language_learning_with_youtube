@@ -1,11 +1,98 @@
-<div class="slider" id="main-slider"><!-- outermost container element -->
-	<div class="slider-wrapper"><!-- innermost wrapper element -->
-		<div class="slide" data-image="http://lorempixel.com/1024/400/animals"></div><!-- slides -->
-		<div class="slide" data-image="http://lorempixel.com/1024/400/business"></div>
-		<div class="slide" data-image="http://lorempixel.com/1024/400/city"></div>
-	</div>
-	<div class="slider-nav"><!-- "Previous" and "Next" actions -->
-		<button class="slider-previous">Previous</button>
-		<button class="slider-next">Next</button>
-	</div>
-</div>
+<!-- <div class="flex align-center w-full max-w-xs mx-auto mt-16"> <div class="mt-1 relative shadow-sm"> <input id="text" class="rounded-md form-input p-3 block w-full sm:text-sm sm:leading-5" placeholder="create a word"> </div> </div> -->
+<div class="container w-1/4 mt-16 mx-auto">
+  <div class="flex items-center justify-between mt-4 sm:mt-0 sm:flex-shrink-0">
+    <h3 class=" text-2xl text-gray-500">Cards</h3>
+    <span class=" rounded-md shadow-sm">
+      <button
+        type="button"
+        class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150">
+        + word
+      </button>
+    </span>
+  </div>
+
+  <div class="slider mt-2" id="main-slider">
+    <!-- outermost container element -->
+    <div class="slider-wrapper">
+      <!-- outermost container element -->
+      <!-- slide -->
+      <div class="slide absolute  opacity-0">
+        <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+          <div class="flex-shrink-0">
+            <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="">
+          </div>
+          <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+            <div class="flex-1">
+              <div class="flex items-center justify-between word h-16  mt-2 text-3xl leading-7 font-semibold text-gray-900">
+                <span>Hello</span>
+                <i class="cursor-pointer text-gray-600 text-xl fas fa-volume-up"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- slide -->
+
+      <div class="slide absolute opacity-0">
+        <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+          <div class="flex-shrink-0">
+            <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="">
+          </div>
+          <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+            <div class="flex-1">
+              <div class="flex items-center justify-between word mt-2 h-16  text-3xl leading-7 font-semibold text-gray-900">
+                <span>Data</span>
+                <i class="cursor-pointer text-gray-600 text-xl fas fa-volume-up"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- slide -->
+
+    </div>
+
+    <div class="slider-nav">
+      <!-- "Previous" and "Next" actions -->
+      <button class="slider-previous"></button>
+      <button class="slider-next"></button>
+    </div>
+  </div>
+
+  <span class="slider-nav relative z-0 mt-1 flex items-end mt-2 justify-center">
+    <button
+      class="slider-previous relative m-1 items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150">
+      <svg class="h-5 w-5" viewbox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/>
+      </svg>
+    </button>
+    <div class="flex flex-col">
+      <button
+        type="button"
+        class="relative m-1 inline-flex items-center px-2 py-2 rounded-t-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150"
+        aria-label="Expand">
+        <svg class="h-5 w-5 transform rotate-180" viewbox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+      <button
+        type="button"
+        class="relative m-1 rotate inline-flex items-center px-2 py-2 rounded-b-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150"
+        aria-label="Expand">
+        <svg class="h-5 w-5 " viewbox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+      <table></table>
+    </div>
+    <button
+      type="button"
+      class="relative inline-flex m-1 items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150"
+      aria-label="Next">
+      <svg class="h-5 w-5" viewbox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+      </svg>
+    </button>
+  </span>

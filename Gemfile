@@ -22,6 +22,9 @@ gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'openssl'
+gem 'language-converter', '~> 0.0.5'
+
+gem 'dotenv-rails', groups: [:development, :test]
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -30,6 +33,8 @@ gem 'openssl'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
+
+gem 'slack-notifier'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

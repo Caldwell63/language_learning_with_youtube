@@ -18,8 +18,8 @@ require("channels")
 
 // Stylesheets
 import "../stylesheets/application.scss";
-import "../channels/script.js"
 import "../channels/slider.js"
+import { popup } from "../channels/popup.js"
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
@@ -31,17 +31,20 @@ import 'alpinejs';
 import { each } from "jquery";
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import { initSelect2 } from '../channels/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
-  const divs = document.querySelectorAll('.word');
-    divs.forEach((div) => {
-      div.addEventListener('click', (event) => {
-        const word = div.textContent;
-        const test = new SpeechSynthesisUtterance(word)
-        const synth = window.speechSynthesis;
-        test.lang = "en"
-        synth.speak(test)
-      });
+  initSelect2();
+
+  const words = document.querySelectorAll('.word');
+  words.forEach((word) => {
+    word.addEventListener('click', (event) => {
+      const text = word.textContent;
+      console.log(text)
+      const test = new SpeechSynthesisUtterance(text)
+      const synth = window.speechSynthesis;
+      test.lang = "en"
+      synth.speak(test)
     });
   });
+});

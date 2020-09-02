@@ -99,6 +99,7 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
+    language-converter (0.0.9)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -189,6 +190,7 @@ GEM
     simple_form (5.0.2)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
+    slack-notifier (2.3.2)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -243,6 +245,7 @@ DEPENDENCIES
   dotenv-rails
   font-awesome-sass
   jbuilder (~> 2.7)
+  language-converter (~> 0.0.5)
   listen (~> 3.2)
   openssl
   pg (>= 0.18, < 2.0)
@@ -254,6 +257,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   simple_form
+  slack-notifier
   spring
   spring-watcher-listen (~> 2.0.0)
   tts (~> 0.8.2)

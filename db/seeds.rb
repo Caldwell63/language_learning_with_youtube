@@ -1,3 +1,4 @@
+
 require 'csv'
 def import_from_csv
   csv_text = File.read(Rails.root.join('lib', 'seeds', 'data_frequent_words_en.csv'))
@@ -33,6 +34,9 @@ puts "Finish! now #{Word.count} words in DB"
   end
 
 
+Card.destroy_all
+
+
 
 
 def language_level(text_array)
@@ -59,6 +63,33 @@ end
 
 text = text_to_test
 print language_level(text)
+
+puts 'Creating card1...'
+card1 = Card.new(
+  stage: 1,
+  known_on: Date.new(2020,12,02),
+  word: Word.first,
+  user_id: 2
+  )
+
+card1.save!
+
+card2 = Card.new(
+  stage: 2,
+  known_on: Date.new(2020,12,03),
+  word: Word.second,
+  user_id: 2
+  )
+  card2.save!
+
+
+  card3 = Card.new(
+    stage: 3,
+    known_on: Date.new(2020,12,03),
+    word: Word.last,
+    user_id: 2
+    )
+  card3.save!
 
 
 class FrequencyList
@@ -112,10 +143,38 @@ text_to_test = get_text_from_user
 ap test_arr_clean = clean_input_return_array_of_words(text_to_test)
 analyze(test_arr_clean)
 
-# Conner Ingles
+
+
+require 'csv'
+def import_from_csv
+  csv_text = File.read(Rails.root.join('lib', 'seeds', 'data_frequent_words_en.csv'))
+  csv = CSV.parse(csv_text, :headers => true)
+  csv.each do |row|
+    w = Word.new
+    w.rank = row['rank']
+    w.en = row['en'].downcase
+    w.frequency = row['frequency']
+    w.save
+    p w
+  end
+end
+
+#puts "cleaning #{Word.count} words form DB..."
+#Word.destroy_all
+#puts Word.count
+# import_from_csv
+puts "Finish! now #{Word.count} words in DB"
+
+
 channels = "https://www.youtube.com/channel/UCdEPvAKHIY0bXJqW71mIANg"
 
-a1 = ["https://www.youtube.com/watch?v=erjMgola4fQ",
+# Video.destroy_all
+
+programm = Word.new
+
+
+
+a_one = ["https://www.youtube.com/watch?v=erjMgola4fQ",
       "https://www.youtube.com/watch?v=WFRR0zC70-0",
       "https://www.youtube.com/watch?v=RP1AL2DU6vQ",
       "https://www.youtube.com/watch?v=akZrk7jF5Jo",
@@ -164,3 +223,27 @@ c1 = ["https://youtu.com/F-175C95uGE",
       "https://youtu.com/nhZ4JCrOwe0"
      ]
 
+a_one.each do |video|
+  programm.get_level(video)
+  Video.last.training = "A1"
+end
+
+a2.each do |video|
+  programm.get_level(video)
+  Video.last.training = "A2"
+end
+
+b1.each do |video|
+  programm.get_level(video)
+  Video.last.training = "B1"
+end
+
+b2.each do |video|
+  programm.get_level(video)
+  Video.last.training = "B2"
+end
+
+c1.each do |video|
+  programm.get_level(video)
+  Video.last.training = "C1"
+end

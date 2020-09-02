@@ -1,9 +1,16 @@
 class Word < ApplicationRecord
-  has_many :cards
+  has_many :cards, dependent: :destroy
+
+  scope :available_for, ->(user) do
+    words_with_cards = user.words
+    where.not(id: words_with_cards.pluck(:id))
+  end
 
   def get_level(youtube_url)
+    # raise
+
     youtube_id = youtube_url_to_id(youtube_url)
-    text_raw = to_subtitle(youtube_id)
+    text_raw = to_subtitle_v1(youtube_id)
     text_clean = clean_string(text_raw)
     text_array = string_to_array(text_clean)
     result_hash = language_level(text_array)
@@ -20,9 +27,11 @@ class Word < ApplicationRecord
     subtitle: text_array
       )
     video.save
+    video.add_info
   end
 
-  def to_subtitle(youtube_id)
+
+  def to_subtitle_v1(youtube_id)
     url = URI("https://subtitles-for-youtube.p.rapidapi.com/subtitles/#{youtube_id}.srt?lang=en&type=None&translated=Translated")
 
     http = Net::HTTP.new(url.host, url.port)
@@ -31,11 +40,19 @@ class Word < ApplicationRecord
 
     request = Net::HTTP::Get.new(url)
     request["x-rapidapi-host"] = 'subtitles-for-youtube.p.rapidapi.com'
-    request["x-rapidapi-key"] = '26348ad96fmshb520859f06775c8p1a8369jsna80abfb1c8df'
+    request["x-rapidapi-key"] = ENV['RAKUTEN_API_KEY']
 
     response = http.request(request)
     text_raw = response.read_body
     text_raw == "" ? "Video has no subtitles" : text_raw
+  end
+
+
+  def to_subtitle_v2(youtube_id)
+    url = "http://video.google.com/timedtext?lang=en&v=#{youtube_id}"
+    html_file = open(url).read
+
+    #needs to be completed
   end
 
   def youtube_url_to_id(youtube_url)
