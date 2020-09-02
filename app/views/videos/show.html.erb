@@ -1,5 +1,4 @@
 
-<div>
   <div class="bg-gray-800 pb-32">
     <header class="py-10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -12,6 +11,11 @@
       </div>
     </header>
   </div>
+
+<!-- app/views/offers/show.html.erb -->
+<% content_for :meta_title, @video.title %>
+<% content_for :meta_description, "Go watch on youtube" %>
+<% content_for :meta_image, @video.thumbnails %>
 
   <main class="-mt-32">
     <div class="w-9/12 mx-auto pb-12 px-4 sm:px-6 lg:px-8">

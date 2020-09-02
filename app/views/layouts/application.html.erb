@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LanguageLearningWithYoutube</title>
+    <title><%= meta_title %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,14 +11,29 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
 
     <%= favicon_link_tag asset_path('undraw_online_video_ivvq.png') %>
-    <meta name="description" content="Learn Languages with Youtube To find out if a video is adapted to your language level, enter the url from youtube in the search bar. You can also browse in our the list below to find viedos classed with language levels.">
-    <meta property="og:image" content="<%= image_url('meta_image.png') %>">
+    <meta name="description" content="<%= meta_description %>">
 
-  </head>
+<!-- Facebook Open Graph data -->
+<meta property="og:title" content="<%= meta_title %>" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="<%= request.original_url %>" />
+<meta property="og:image" content="<%= meta_image %>" />
+<meta property="og:description" content="<%= meta_description %>" />
+<meta property="og:site_name" content="<%= meta_title %>" />
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
+<meta name="twitter:title" content="<%= meta_title %>">
+<meta name="twitter:description" content="<%= meta_description %>">
+<meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
+<meta name="twitter:image:src" content="<%= meta_image %>">
+</head>
 
   <body>
     <%= render 'shared/navbar' %>
     <%= yield %>
     <%= render 'shared/footer' %>
   </body>
+
 </html>
