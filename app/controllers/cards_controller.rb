@@ -27,7 +27,6 @@ class CardsController < ApplicationController
 
   def destroy
     @card = Card.find(params[:id])
-    raise
     @card.destroy
     respond_to do |format|
        format.html { redirect_to cards_url notice: 'Card was successfully deleted.' }

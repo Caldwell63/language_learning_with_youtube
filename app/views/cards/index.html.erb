@@ -19,21 +19,10 @@
 </div>
 
 
-<%= simple_form_for(@card) do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.association :word,
-      as: :select,
-      input_html: {class: "select2"}
-      %>
-  <%= f.submit %>
-<% end %>
-
-
-#<div class="container w-1/4 mt-10 mx-auto">
-#  <%= simple_form_for(@card) do |f| %>
-#    <%= f.hidden_field :user_id, value: current_user.id %>
-#    <%= f.association :word, as: :select, input_html: {class: "select2"} %>
-#    <%= f.submit class:"mt-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-2 rounded inline-flex items-center" %>
-#  <% end %>
-#</div>
-
+<div class="container w-1/4 mt-10 mx-auto">
+  <%= simple_form_for(@card) do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.association :word, as: :select, input_html: {class: "select2"} %>
+    <%= f.submit class:"mt-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-2 rounded inline-flex items-center" %>
+  <% end %>
+</div>
