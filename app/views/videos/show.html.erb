@@ -1,25 +1,4 @@
-<%
-=begin%>
- <%= content_for :meta_id, @video.youtube_id %>
-  <%= content_for :meta_url, "#{@video.id} is on #{DEFAULT_META["meta_url"]}" %>
-<% content_for :meta_url, @video.id %> 
-<%
-=end%>
 
-<!-- app/views/offers/show.html.erb -->
-<% content_for :meta_title, "#{@video.title} is on #{DEFAULT_META["meta_title"]}" %>
-<%
-=begin%>
- <% content_for :meta_description, @video.description %> 
-<%
-=end%>
-<%
-=begin%>
- <% content_for :meta_url, meta_url %>  
-<%
-=end%>
-<meta property="og:video:secure_url" content= <% "http://www.easy-language-learning-with-youtube.club/videos/#{@video.youtube_id}" %> />
-<div>
   <div class="bg-gray-800 pb-32">
     <header class="py-10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,13 +9,13 @@
           </button>
         </span>
       </div>
-    
-    
-    <%#= content_for :meta_url" content=<%#= "http://www.easy-language-learning-with-youtube.club/videos/#{youtube_id}" %> />
     </header>
   </div>
-    <%= content_for :meta_title, "#{@video.title} " %>
-    <%= content_for :meta_url, content="http://www.easy-language-learning-with-youtube.club/videos/#{@video.meta_url}" %>
+
+<!-- app/views/offers/show.html.erb -->
+<% content_for :meta_title, @video.title %>
+<% content_for :meta_description, "Go watch on youtube" %>
+<% content_for :meta_image, @video.thumbnails %>
 
   <main class="-mt-32">
     <div class="w-9/12 mx-auto pb-12 px-4 sm:px-6 lg:px-8">
