@@ -14,6 +14,7 @@ class AnalizeLevel
   def call
     find_treshold_word
     level
+    @rank #replace with level later
   end
 
   private
@@ -24,7 +25,7 @@ class AnalizeLevel
 
   def find_treshold_word
     order_by_rank
-    index = @subtitle_words_ordered.count - (@subtitle_words_ordered.count * 0.2).to_i - 1
+    index = @subtitle_words_ordered.count - (@subtitle_words_ordered.count * 0.4).to_i - 1
     @treshold_word = @subtitle_words_ordered[index]
   end
 
@@ -36,10 +37,10 @@ class AnalizeLevel
 
   def level
     # ap @treshold_word
-    rank = frequent_words[@treshold_word]
-    puts "DEBUG: #{@treshold_word}: rank:#{rank}"
+    @rank = word_range(@treshold_word)
+    puts "DEBUG: #{@treshold_word}: rank:#{@rank}"
     STEPS.keys.reverse.each do |key|
-      return STEPS[key] if key < rank
+      return STEPS[key] if key < @rank
     end
   end
 
