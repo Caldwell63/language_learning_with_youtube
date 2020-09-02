@@ -19,7 +19,7 @@ require("channels")
 // Stylesheets
 import "../stylesheets/application.scss";
 import "../channels/slider.js"
-import { flipper } from "../channels/flipper.js"
+import { popup } from "../channels/popup.js"
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
@@ -35,7 +35,7 @@ import { initSelect2 } from '../channels/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   initSelect2();
-    
+
   const words = document.querySelectorAll('.word');
   words.forEach((word) => {
     word.addEventListener('click', (event) => {
@@ -45,7 +45,6 @@ document.addEventListener('turbolinks:load', () => {
       const synth = window.speechSynthesis;
       test.lang = "en"
       synth.speak(test)
-
     });
   });
 });

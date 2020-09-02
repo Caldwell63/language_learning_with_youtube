@@ -1,0 +1,41 @@
+// .video-container {
+//     position:relative;
+//     padding-bottom:56.25%;
+//     height:0;
+//     overflow:hidden;
+//     }
+    
+// .video-container iframe, .video-container object, .video-container embed {
+//     position:absolute;
+//     top:0;
+//     left:0;
+//     width:100%;
+//     height:100%;
+//     }
+
+.video-container
+    {
+    position: relative;
+    }
+    
+.video-container iframe
+    {
+    width: 100%;
+    height: 380px;
+
+    }    
+
+// @media screen and (min-width: 600px) {
+//     .video-container iframe {
+//         width: 50%;
+//         }
+//     }
+      
+//       /* If screen size is 600px wide, or less, set the font-size of <div> to 30px */
+// @media screen and (max-width: 600px) {
+//     .video-container iframe {
+//         width: 100%;
+//         }
+//     }
+      
+    

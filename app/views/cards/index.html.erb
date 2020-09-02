@@ -1,28 +1,23 @@
 <div class="container w-1/4 mt-16 mx-auto">
   <div class="flex items-center justify-between mt-4 sm:mt-0 sm:flex-shrink-0">
     <h3 class=" text-2xl text-gray-500">Cards</h3>
-    <span class=" rounded-md shadow-sm">
+    <span class="rounded-md shadow-sm">
       <button
         type="button"
-        class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150">
-        + word
+        class="inline-flex items-center px-2 py-1  text-sm leading-5 font-medium rounded-md text-red-400 bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150">
+        <%= link_to "Delete #{@card.word}", cards_path, method: :delete, data: { confirm: "Are you sure?" } %>
       </button>
     </span>
   </div>
 
   <div class="slider mt-2" id="main-slider">
     <!-- outermost container element -->
-    <div class="slider-wrapper pointer-events-none">
-        <%= render @cards %>
-    </div>
-
-    <div class="slider-nav">
-      <!-- "Previous" and "Next" actions -->
-      <button class="slider-previous"></button>
-      <button class="slider-next"></button>
+    <div class="slider-wrapper">
+      <%= render @cards %>
     </div>
   </div>
 </div>
+
 
 <%= simple_form_for(@card) do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
@@ -32,4 +27,13 @@
       %>
   <%= f.submit %>
 <% end %>
+
+
+#<div class="container w-1/4 mt-10 mx-auto">
+#  <%= simple_form_for(@card) do |f| %>
+#    <%= f.hidden_field :user_id, value: current_user.id %>
+#    <%= f.association :word, as: :select, input_html: {class: "select2"} %>
+#    <%= f.submit class:"mt-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-2 rounded inline-flex items-center" %>
+#  <% end %>
+#</div>
 

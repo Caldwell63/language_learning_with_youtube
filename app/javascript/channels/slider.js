@@ -21,11 +21,13 @@
 		_slideTo: function( slide ) {
 			let currentSlide = this.slides[slide];
 			currentSlide.style.opacity = 1;
+			currentSlide.style.zIndex = 2;
 
 			for( let i = 0; i < this.slides.length; i++ ) {
 				let slide = this.slides[i];
 				if( slide !== currentSlide ) {
 					slide.style.opacity = 0;
+					slide.style.zIndex = 1;
 				}
 			}
 		},
@@ -36,7 +38,6 @@
 			for( i = 0; i < len; ++i ) {
 				let slide = slides[i],
 					src = slide.getAttribute( "data-image" );
-					console.log(src);
 			    slide.style.backgroundImage = "url(" + src + ")";
 			}
 		},

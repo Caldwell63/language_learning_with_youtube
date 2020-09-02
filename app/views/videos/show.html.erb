@@ -1,5 +1,4 @@
 
-<div>
   <div class="bg-gray-800 pb-32">
     <header class="py-10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,14 +12,18 @@
     </header>
   </div>
 
+<!-- app/views/offers/show.html.erb -->
+<% content_for :meta_title, @video.title %>
+<% content_for :meta_description, "Go watch on youtube" %>
+<% content_for :meta_image, @video.thumbnails %>
+
   <main class="-mt-32">
     <div class="w-9/12 mx-auto pb-12 px-4 sm:px-6 lg:px-8">
-      <!-- Replace with your content -->
-
-      <div class="bg-white rounded-lg shadow px-5 py-6 sm:px-6">
-        <iframe class="mx-auto" width="840" height="473" src="<%= "https://www.youtube.com/embed/" %><%= @video.youtube_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="video-container bg-white rounded-lg shadow px-5 py-6 sm:px-6">
+        <iframe src="<%= "https://www.youtube.com/embed/" %><%= @video.youtube_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
+
       <!-- /Word suggestions -->
     <div class="w-9/12 mx-auto pb-12 px-4 sm:px-6 lg:px-8">
       <div class="bg-white">
@@ -44,6 +47,7 @@
       </div>
     </div>
     <!-- /Affiliate links -->
+
     <div class="w-9/12 mx-auto pb-12 px-4 sm:px-6 lg:px-8">
       <div class="bg-white">
         <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
