@@ -2,13 +2,14 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :how_to]
 
   def home
-    if params["youtube-query"]
-      query = params["youtube-query"]
-      @search_results = SearchYoutube.new(query).call
-    end
+    # if params["youtube-query"].present?
+    #   query = params["youtube-query"]
+    #   @search_results = SearchYoutube.new(query).call
+    # end
 
     if params[:query].present?
       @videos = Video.search(params[:query])
+      # render root_path(anchor: "search")
     else
       @videos = Video.all
     end
@@ -39,7 +40,7 @@ class PagesController < ApplicationController
   end
 
   def search
-    if params["youtube-query"]
+    if params["youtube-query"].present?
       query = params["youtube-query"]
       @search_results = SearchYoutube.new(query).call
 
