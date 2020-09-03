@@ -15,19 +15,19 @@
               <%= text_field_tag :query, params[:query], class: "pl-4 form-control w-full h-12 border-solid border-2 border-gray-200  rounded-none rounded-l-md transition ease-in-out duration-150 sm:text-sm sm:leading-5", placeholder: "Find a video" %>
             </div>
             <div class="">
-              <%= submit_tag "Search", class: "items-center h-12 px-4 py-2 text-sm leading-5 font-medium rounded-r-md  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"%>
+              <%= submit_tag "Search", class: " rounded-r-md h-12 w-full flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium  text-white bg-red-c hover:bg-transparent hover:border-red-c hover:text-red-c focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"%>
             </div>
             <% end %>
 
           </div>
           <div class="container items-center mt-8 flex">
-            <span class="py-2 px-2 mr-2  px-4 py-2 rounded text-md font-medium leading-4 text-teal-800" href="/">Levels:</span>
-            <a class="py-2 px-2 mr-2  px-4 py-2 rounded text-md font-medium leading-4 bg-teal-100 text-teal-800" href="/?level=A1&commit=Search">A1</a>
-            <a class="py-2 px-2 mr-2  px-4 py-2 rounded text-md font-medium leading-4 bg-teal-100 text-teal-800" href="/?level=A2&commit=Search">A2</a>
-            <a class="py-2 px-2 mr-2  px-4 py-2 rounded text-md font-medium leading-4 bg-teal-100 text-teal-800" href="/?level=B1&commit=Search">B1</a>
-            <a class="py-2 px-2 mr-2  px-4 py-2 rounded text-md font-medium leading-4 bg-teal-100 text-teal-800" href="/?level=B2&commit=Search">B2</a>
-            <a class="py-2 px-2 mr-2  px-4 py-2 rounded text-md font-medium leading-4 bg-teal-100 text-teal-800" href="/?level=C1&commit=Search">C1</a>
-            <a class="py-2 px-2 mr-2  px-4 py-2 rounded text-md font-medium leading-4 bg-teal-100 text-teal-800" href="/?level=C2&commit=Search">C2</a>
+            <span class="py-2 px-2 mr-2  px-4 py-2 rounded text-md font-medium leading-4 text-teal-800" href="/">Level:</span>
+            <a class="py-2 px-2 mr-2  px-4 py-2 rounded text-md font-medium leading-4 bg-level-1 text-white" href="/?level=A1&commit=Search">A1</a>
+            <a class="py-2 px-2 mr-2  px-4 py-2 rounded text-md font-medium leading-4 bg-level-2 text-white" href="/?level=A2&commit=Search">A2</a>
+            <a class="py-2 px-2 mr-2  px-4 py-2 rounded text-md font-medium leading-4 bg-level-3 text-white" href="/?level=B1&commit=Search">B1</a>
+            <a class="py-2 px-2 mr-2  px-4 py-2 rounded text-md font-medium leading-4 bg-level-4 text-white" href="/?level=B2&commit=Search">B2</a>
+            <a class="py-2 px-2 mr-2  px-4 py-2 rounded text-md font-medium leading-4 bg-level-5 text-white" href="/?level=C1&commit=Search">C1</a>
+            <a class="py-2 px-2 mr-2  px-4 py-2 rounded text-md font-medium leading-4 bg-level-6 text-white" href="/?level=C2&commit=Search">C2</a>
           </div>
         </div>
       </div>
