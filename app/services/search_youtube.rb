@@ -31,11 +31,12 @@ class SearchYoutube
   end
 
   def create_hash
-    @data["items"]
-    #delete all where type is not video
+    results = @data["items"]
+    # @final = results.select! {|item| item['type'] == 'video'}
+    @final = []
+    results.each do |item|
+      @final << item if item['type'] == 'video'
+    end
+    @final
   end
-
 end
-
-
-
