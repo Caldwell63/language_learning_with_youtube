@@ -10,6 +10,7 @@ class CreateVideo
       subtitle: words,
       vocabulary: LearningSuggestion.new(words).call
     )
+
     add_info
     @video
   end
@@ -46,5 +47,4 @@ class CreateVideo
     @video.save
   end
 end
-
 
