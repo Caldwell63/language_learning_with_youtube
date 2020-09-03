@@ -4,10 +4,16 @@
     <!-- Modal HTML -->
     <div id="myModal" class="modal fade">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content rounded-lg ">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Add video from Youtube</h4>
+                    <div class="lg:text-left">
+                      <p class="text-base leading-6 text-red-c font-semibold tracking-wide uppercase">
+                      Add Video</p>
+                      <h3 class="mt-2 mb-6 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
+                       What do you want to add?
+                      </h3>
+                    </div>
                 </div>
                 <div class="modal-body">
 
@@ -24,7 +30,7 @@
                     <button
                       type="button"
                       id="search-button"
-                      class=" flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-c hover:bg-transparent hover:border-red-c hover:text-red-c focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                      class="rounded-r-md flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-c hover:bg-transparent hover:border-red-c hover:text-red-c focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
                       Search on Youtube
                     </button>
                   </div>
@@ -34,15 +40,16 @@
                   <div class="flex flex-col">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg mb-16">
-                          <table class="min-w-full divide-y divide-gray-200 table-fixed">
+                        <div class="mt-4 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg mb-16">
+                          <p></p>
+                          <table class=" min-w-full divide-y divide-gray-200 table-fixed">
                             <thead>
                               <tr>
-                                <th class="w-9/12 px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                <th class="  w-9/12 px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                   Title
                                 </th>
                                 <th class="w-2/12 px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                  Language Level
+
                                 </th>
                               </tr>
                             </thead>
