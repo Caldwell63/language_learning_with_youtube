@@ -19,6 +19,7 @@ require("channels")
 // Stylesheets
 import "../stylesheets/application.scss";
 import "../channels/slider.js";
+import "../channels/modal.js";
 import { popup } from "../channels/popup.js";
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
