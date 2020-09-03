@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :videos, only: [:show]
+  resources :videos, only: [:show, :index]
   resources :cards
   resources :words, only: :index
   root to: 'pages#home'
