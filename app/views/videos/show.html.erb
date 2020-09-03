@@ -1,13 +1,16 @@
 
   <div class="bg-gray-800 pb-32">
     <header class="py-10">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto flex justify-between  px-4 sm:px-6 lg:px-8">
         <span class="inline-flex rounded-md shadow-sm">
           <button type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 text-base leading-6 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150">
             <i class=" mr-2 fa fa-chevron-left" aria-hidden="true"></i>
              <%= link_to "back", root_path  %>
           </button>
         </span>
+        <div class="rounded border-gray-700 shadow-md mx-3 px-3 py-2 bg-level-2 text-white">
+          <p><%= @video.level %></p>
+        </div>
       </div>
     </header>
   </div>
@@ -31,7 +34,7 @@
           <p class="text-center text-base leading-6 mb-6 font-semibold uppercase text-gray-600 tracking-wider">
           Add words to your flash cards          </p>
 
-          <% ["notebook", "interesting", "however", "nothing" ].each do |word|%>
+          <% @video.vocabulary.each do |word|%>
           <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium leading-4 bg-indigo-100 text-indigo-800">
             <%= word %>
             <button type="button" class="flex-shrink-0 ml-1.5 inline-flex text-indigo-500 focus:outline-none focus:text-indigo-700" aria-label="Remove small badge">

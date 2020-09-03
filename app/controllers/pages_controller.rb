@@ -4,7 +4,14 @@ class PagesController < ApplicationController
   def home
     url = params["youtube-url"]
     # result = Word.new.get_level(url) if params["youtube-url"]
-    CreateVideo.new(url).call if params["youtube-url"]
+    # CreateVideo.new(url).call if params["youtube-url"]
+
+    if params["youtube-url"]
+      CreateVideo.new(url).call
+      @video = Video.last
+      redirect_to video_path(@video)
+    end
+
   rescue FetchYoutubeSubtitles::NoSubtitle
     @no_subtitle_error = true
   ensure

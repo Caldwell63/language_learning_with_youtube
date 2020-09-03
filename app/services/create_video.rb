@@ -7,7 +7,8 @@ class CreateVideo
     @video = Video.new(
       youtube_id: youtube_id,
       level: AnalizeLevel.new(words).call,
-      subtitle: words
+      subtitle: words,
+      vocabulary: LearningSuggestion.new(words).call
     )
     add_info
     @video
