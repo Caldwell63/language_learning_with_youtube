@@ -102,7 +102,8 @@ a2 = [
       "https://www.youtube.com/watch?v=gOMypAhVaXE",
       "https://www.youtube.com/watch?v=GH7x5w7mtjE"
      ]
-# b1 = ["https://www.youtube.com/watch?v=g2AdkNH-kWA",
+  b1 = [
+#       "https://www.youtube.com/watch?v=g2AdkNH-kWA",
 #       "https://www.youtube.com/watch?v=HJx7C7GT2VU",
 #       "https://www.youtube.com/watch?v=gdK6z0i1uOs",
 #       "https://www.youtube.com/watch?v=F-175C95uGE",
