@@ -28,6 +28,7 @@ class PagesController < ApplicationController
       when "C2"
         @videos = @videos.level_6
       end
+      # redirect_to root_path(anchor: "search")
     end
 
   rescue FetchYoutubeSubtitles::NoSubtitle
