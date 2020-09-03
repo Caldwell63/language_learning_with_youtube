@@ -24,15 +24,17 @@
     <div class="w-9/12 mx-auto pb-12 px-4 sm:px-6 lg:px-8">
       <div class="flex items-start video-container bg-white rounded-lg shadow pl-10 py-12 pr-2 ">
         <iframe src="<%= "https://www.youtube.com/embed/" %><%= @video.youtube_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
         <div class="w-3/12">
           <div class="bg-white">
             <div class="max-w-screen-xl mx-auto pl-5 ">
               <p class="text-center text-base leading-6 mb-5  font-semibold uppercase text-gray-600 tracking-wider">
               Add to cards          </p>
-
-              <% @video.vocabulary.each do |word|%>
-              <span class="inline-flex items-center px-3 py-1 rounded-full hover:bg-green-300 font-medium leading-4 bg-gray-200 text-gray-600 m-1">
-                <%= word %>
+              
+            <% @video.vocabulary.each do |word_str|%>
+            <% word = Word.find_by(en: word_str) %>
+                <%= link_to cards_path(user_id: current_user.id, word_id: word.id, from_video: true), method: :post do %>              <span class="inline-flex items-center px-3 py-1 rounded-full hover:bg-green-300 font-medium leading-4 bg-gray-200 text-gray-600 m-1">
+                <%= word_str %>
                 <button type="button" class="flex-shrink-0 ml-1.5 inline-flex text-gray-500 hover:text-green-500 focus:outline-none focus:text-green-500" aria-label="Remove small badge">
                   <svg class="ml-4 h-4 w-4" stroke="currentColor" fill="none" viewBox="0 0 20 20">
                   <path d="M14.613,10c0,0.23-0.188,0.419-0.419,0.419H10.42v3.774c0,0.23-0.189,0.42-0.42,0.42s-0.419-0.189-0.419-0.42v-3.774H5.806c-0.23,0-0.419-0.189-0.419-0.419s0.189-0.419,0.419-0.419h3.775V5.806c0-0.23,0.189-0.419,0.419-0.419s0.42,0.189,0.42,0.419v3.775h3.774C14.425,9.581,14.613,9.77,14.613,10 M17.969,10c0,4.401-3.567,7.969-7.969,7.969c-4.402,0-7.969-3.567-7.969-7.969c0-4.402,3.567-7.969,7.969-7.969C14.401,2.031,17.969,5.598,17.969,10 M17.13,10c0-3.932-3.198-7.13-7.13-7.13S2.87,6.068,2.87,10c0,3.933,3.198,7.13,7.13,7.13S17.13,13.933,17.13,10"></path>              </svg>
@@ -40,8 +42,10 @@
               </span>
 
               <% end %>
+              <% end %>
             </div>
           </div>
+
         </div>
 
       </div>
