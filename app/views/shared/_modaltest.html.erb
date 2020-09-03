@@ -1,92 +1,89 @@
 <div class="bs-example">
-    <!-- Button HTML (to Trigger Modal) -->
+  <!-- Button HTML (to Trigger Modal) -->
 
-    <!-- Modal HTML -->
-    <div id="myModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Add video from Youtube</h4>
-                </div>
-                <div class="modal-body">
-
-                <!-- form -->
-
-                  <div class="justify-center flex">
-                    <input
-                      id="youtube-query"
-                      name="youtube-query"
-                      aria-label="youtube-query"
-                      type="text"
-                      class="flex-grow appearance-none w-full px-5 py-3 border border-gray-300 text-base leading-6 rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:shadow-outline focus:border-blue-300 transition duration-150 ease-in-out sm:max-w-xs"
-                      placeholder="Serch words">
-                    <button
-                      type="button"
-                      id="search-button"
-                      class=" flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-c hover:bg-transparent hover:border-red-c hover:text-red-c focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
-                      Search on Youtube
-                    </button>
-                  </div>
-
-                <!-- list -->
-
-                  <div class="flex flex-col">
-                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg mb-16">
-                          <table class="min-w-full divide-y divide-gray-200 table-fixed">
-                            <thead>
-                              <tr>
-                                <th class="w-9/12 px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                  Title
-                                </th>
-                                <th class="w-2/12 px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                  Language Level
-                                </th>
-                              </tr>
-                            </thead>
-                            <tbody id="youtube-results" class="bg-white divide-y divide-gray-200">
-
-                              <% if @search_results.present? %>
-
-                                <%  @search_results.each do |result|%>
-                                  <tr>
-                                    <td class="px-6 py-4 whitespace-no-wrap">
-                                      <div class="flex">
-                                        <img src="<%= result["thumbnail"] %>" alt="" class="w-1/12 mr-3">
-                                        <div>
-                                          <div class="text-sm leading-5 text-gray-900">
-                                            <%= result["title"] %></div>
-                                          <div class="text-sm leading-5 text-gray-500"><%= result["author"]["name"] %> - <%= number_with_delimiter(result["views"], :delimiter => '.') %> views</div>
-                                        </div>
-                                      </div>
-                                    </td>
-                                    <td class="ml-2 px-3 py-2 whitespace-no-wrap">
-                                      <div class="text-xs text-red-c w-full flex items-center justify-center py-2 border border-transparent leading-6 font-medium rounded-md hover:bg-red-c bg-transparent border-red-c hover:text-white  focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
-                                        <%= link_to 'Language Level', videos_path(youtube_id: result["id"]), method: :post %>
-                                      </div>
-                                    </td>
-                                  </tr>
-                                <% end %>
-                              <% end %>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-
-
-
-
-
-
-                </div>
-            </div>
+  <!-- Modal HTML -->
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Add video from Youtube</h4>
         </div>
+        <div class="modal-body">
+
+          <!-- form -->
+
+          <div class="justify-center flex">
+            <input
+              id="youtube-query"
+              name="youtube-query"
+              aria-label="youtube-query"
+              type="text"
+              class="flex-grow appearance-none w-full px-5 py-3 border border-gray-300 text-base leading-6 rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:shadow-outline focus:border-blue-300 transition duration-150 ease-in-out sm:max-w-xs"
+              placeholder="Serch words">
+            <button
+              type="button"
+              id="search-button"
+              class=" flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-c hover:bg-transparent hover:border-red-c hover:text-red-c focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+              Search on Youtube
+            </button>
+          </div>
+
+          <!-- list -->
+
+          <div class="flex flex-col">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg mb-16">
+                  <table class="min-w-full divide-y divide-gray-200 table-fixed">
+                    <thead>
+                      <tr>
+                        <th class="w-9/12 px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                          Title
+                        </th>
+                        <th class="w-2/12 px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                          Language Level
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody id="youtube-results" class="bg-white divide-y divide-gray-200">
+
+                      <% if @search_results.present? %>
+
+                        <%  @search_results.each do |result|%>
+                          <tr>
+                            <td class="px-6 py-4 whitespace-no-wrap">
+                              <div class="flex">
+                                <img src="<%= result["thumbnail"] %>" alt="" class="w-1/12 mr-3">
+                                <div>
+                                  <div class="text-sm leading-5 text-gray-900">
+                                    <%= result["title"] %></div>
+                                  <div class="text-sm leading-5 text-gray-500"><%= result["author"]["name"] %>
+                                    -
+                                    <%= number_with_delimiter(result["views"], :delimiter => '.') %>
+                                    views</div>
+                                </div>
+                              </div>
+                            </td>
+                            <td class="ml-2 px-3 py-2 whitespace-no-wrap">
+                              <div
+                                class="text-xs text-red-c w-full flex items-center justify-center py-2 border border-transparent leading-6 font-medium rounded-md hover:bg-red-c bg-transparent border-red-c hover:text-white  focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                                <%= link_to 'Language Level', videos_path(youtube_id: result["id"]), method: :post %>
+                              </div>
+                            </td>
+                          </tr>
+                        <% end %>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 <!-- https://www.youtube.com/watch?v=eVajQPuRmk8 -->

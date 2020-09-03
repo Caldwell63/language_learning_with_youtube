@@ -12,7 +12,12 @@ class CardsController < ApplicationController
   end
 
   def create
-    card = Card.new(card_params)
+    if params[:from_video]
+      card = Card.new(user_id: params[:user_id], word_id: params[:word_id])
+    else
+      card = Card.new(card_params)
+    end
+
     card.fillout
     if card.save!
       redirect_to cards_path
