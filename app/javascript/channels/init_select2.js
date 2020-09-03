@@ -2,11 +2,13 @@ import $ from 'jquery';
 import 'select2';
 
 const initSelect2 = () => {
+
   if (document.querySelector('#card_word_id')) {
     const user_id = document.querySelector('#card_user_id').value
 
     $('#card_word_id').select2({
       width: '100%',
+
       ajax: {
         url: '/words',
         dataType: 'json',
@@ -52,6 +54,7 @@ const initSelect2 = () => {
       }
     })
   }
+
 };
 
 export {
