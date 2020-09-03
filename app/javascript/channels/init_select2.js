@@ -2,14 +2,13 @@ import $ from 'jquery';
 import 'select2';
 
 const initSelect2 = () => {
-  const cardUser = document.querySelector('#card_user_id');
 
-  if (cardUser) {
-    const user_id = cardUser.value
+  if (document.querySelector('#card_word_id')) {
+    const user_id = document.querySelector('#card_user_id').value
 
     $('#card_word_id').select2({
       width: '100%',
-      height: '20%',
+
       ajax: {
         url: '/words',
         dataType: 'json',
@@ -32,6 +31,30 @@ const initSelect2 = () => {
       }
     })
   }
+
+  if (document.querySelector('#list-of-videos')) {
+    $('#list-of-videos').select2({
+      width: '100%',
+      ajax: {
+        url: '/videos',
+        dataType: 'json',
+        data: function(params) {
+          var query = {
+            search: params.term,
+          }
+          return query;
+        },
+        processResults: function(data) {
+          return {
+            results: data.map((video) => {
+              return { id: video.id, text: `${video.title} - ${video.level} ` }
+            })
+          };
+        },
+      }
+    })
+  }
+
 };
 
 export {
