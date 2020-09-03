@@ -1,19 +1,19 @@
 <div class="container w-1/4 mt-16 mx-auto">
   <div class="flex items-center justify-between mt-4 sm:mt-0 sm:flex-shrink-0">
-    <h3 class=" text-2xl text-gray-500">Cards</h3>
+    <h3 class=" text-3xl text-gray-500">Cards</h3>
   </div>
 
-  <div class="slider mt-2" id="main-slider">
+  <div class="slider" id="main-slider">
     <!-- outermost container element -->
     <div class="slider-wrapper">
       <%= render @cards %>
     </div>
   </div>
+
+   <%= render 'buttons' %>
+  <%= simple_form_for(@new_card) do |f| %>
+  <%= f.hidden_field  :user_id, value: current_user.id %>
+  <%= f.association :word, as: :select, collection: [], input_html: {class: "select2"} %>
+  <%= f.submit class:"mt-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-2 rounded-md inline-flex items-center" %>
+  <% end %>
 </div>
-
-
-<%= simple_form_for(@new_card) do |f| %>
-<%= f.hidden_field :user_id, value: current_user.id %>
-<%= f.association :word, as: :select, collection: [], input_html: {class: "select2"} %>
-<%= f.submit class:"mt-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-2 rounded inline-flex items-center" %>
-<% end %>
