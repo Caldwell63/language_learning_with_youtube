@@ -1,16 +1,5 @@
 
 
-puts "cleaning #{Word.count} words form DB..."
-Word.destroy_all
-puts Word.count
-
-import_from_csv
-
-puts "Finish! now #{Word.count} words in DB"
-
-
-
-
 
 
 
@@ -80,9 +69,9 @@ end
 
 # puts "cleaning #{Word.count} words form DB..."
 # Word.destroy_all
-# puts Word.count
-# import_from_csv
-# puts "Finish! now #{Word.count} words in DB"
+puts Word.count
+import_from_csv
+puts "Finish! now #{Word.count} words in DB"
 
 
 
