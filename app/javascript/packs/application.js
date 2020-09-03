@@ -33,9 +33,11 @@ import { each } from "jquery";
 
 // Internal imports, e.g:
 import { initSelect2 } from '../channels/init_select2';
+import { searchYoutube } from '../channels/search';
 
 document.addEventListener('turbolinks:load', () => {
   initSelect2();
+  searchYoutube();
 
   const words = document.querySelectorAll('.word');
   words.forEach((word) => {

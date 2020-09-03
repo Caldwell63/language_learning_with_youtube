@@ -2,14 +2,9 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :how_to]
 
   def home
-    url = params["youtube-url"]
-    # result = Word.new.get_level(url) if params["youtube-url"]
-    # CreateVideo.new(url).call if params["youtube-url"]
-
-    if params["youtube-url"]
-      CreateVideo.new(url).call
-      @video = Video.last
-      redirect_to video_path(@video)
+    if params["youtube-query"]
+      query = params["youtube-query"]
+      @search_results = SearchYoutube.new(query).call
     end
 
   rescue FetchYoutubeSubtitles::NoSubtitle
@@ -19,5 +14,14 @@ class PagesController < ApplicationController
   end
 
   def how_to
+  end
+
+  def search
+    if params["youtube-query"]
+      query = params["youtube-query"]
+      @search_results = SearchYoutube.new(query).call
+
+      render layout: false
+    end
   end
 end
