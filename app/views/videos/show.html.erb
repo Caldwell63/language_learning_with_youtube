@@ -1,5 +1,5 @@
 
-  <div class="bg-gray-800 pb-32">
+  <div class="bg-gray-400  pb-32">
     <header class="py-10">
       <div class="max-w-7xl mx-auto flex justify-between  px-4 sm:px-6 lg:px-8">
         <span class="inline-flex rounded-md shadow-sm">
@@ -8,9 +8,23 @@
              <%= link_to "back", root_path  %>
           </button>
         </span>
-        <div class="rounded border-gray-700 shadow-md mx-3 px-3 py-2 bg-level-2 text-white">
-          <p><%= @video.level %></p>
+          <% level = "Advanced" %>
+          <% level = "Intermediate" if @video.level < 320 %>
+          <% level = "Beginner" if @video.level < 200 %>
+        <div class="flex items-center">
+          <p class="opacity-25   pr-3">level:</p>
+          <div class="rounded  font-semibold border-gray-700 flex justify-center text-sm px-12 text-lg py-2
+            <%= "bg-level-3" if level == "Advanced" %>
+            <%= "bg-level-2" if level == "Intermediate" %>
+            <%= "bg-level-1" if level == "Beginner" %>
+            hover:text-white">
+            <p class="text-white">
+              <%= level %>
+            </p>
+          </div>
+
         </div>
+          <div class="w-20 "></div>
       </div>
     </header>
   </div>
