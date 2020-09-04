@@ -51,8 +51,9 @@
             <% @video.vocabulary.each do |word_str|%>
             <% word = Word.find_by(en: word_str) %>
             <% if current_user.present? %>
-              <%= link_to cards_path(user_id: current_user.id, word_id: word.id, from_video: true), method: :post do %>              <span class="inline-flex items-center px-3 py-1 rounded-full hover:bg-green-300 font-medium leading-4 bg-gray-200 text-gray-600 m-1">
+              <%= link_to cards_path(user_id: current_user.id, word_id: word.id, from_video: true), method: :post do %>
             <% end %>
+              <span class="inline-flex items-center px-3 py-1 rounded-full hover:bg-green-300 font-medium leading-4 bg-gray-200 text-gray-600 m-1">
                 <%= word_str %>
                 <button type="button" class="flex-shrink-0 ml-1.5 inline-flex text-gray-500 hover:text-green-500 focus:outline-none focus:text-green-500" aria-label="Remove small badge">
                   <svg class="ml-4 h-4 w-4" stroke="currentColor" fill="none" viewBox="0 0 20 20">
