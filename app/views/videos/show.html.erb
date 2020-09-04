@@ -31,7 +31,7 @@
 
 <!-- app/views/offers/show.html.erb -->
 <% content_for :meta_title, @video.title %>
-<% content_for :meta_description, @video.level %>
+<% content_for :meta_description, "level: #{level}" %>
 <% content_for :meta_image, @video.thumbnails %>
 
   <main class="-mt-32">
