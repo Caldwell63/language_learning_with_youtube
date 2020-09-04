@@ -22,8 +22,14 @@ class VideosController < ApplicationController
 
       @video = CreateVideo.new(url).call
       redirect_to video_path(@video)
+      # render json: @video, status: :ok
     else
+      # render json: { error: "" }, status: :bad_request
       redirect_to root_path
     end
+
+  rescue FetchYoutubeSubtitles::NoSubtitle
+    @no_subtitle_error = true
+    # render json: { error: "Subtitle not present" }, status: :bad_request
   end
 end
