@@ -42,8 +42,7 @@ document.addEventListener('turbolinks:load', () => {
   const words = document.querySelectorAll('.word');
   words.forEach((word) => {
     word.addEventListener('click', (event) => {
-      const text = word.textContent;
-      console.log(text)
+      const text = word.querySelector("h2").innerText;
       const test = new SpeechSynthesisUtterance(text)
       const synth = window.speechSynthesis;
       test.lang = "en"
