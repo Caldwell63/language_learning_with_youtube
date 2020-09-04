@@ -1,10 +1,8 @@
 class AnalizeLevel
   STEPS = {
-    0 => "A1",
-    600 => "A2",
-    1000 => "B1",
-    2000 => "B2",
-    4000 => "C1"
+    0 => "beginner",
+    200 => "intermediate",
+    320 => "advanced"
   }
 
   def initialize(subtitle_words)

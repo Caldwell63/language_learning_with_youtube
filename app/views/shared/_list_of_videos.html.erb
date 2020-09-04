@@ -76,10 +76,17 @@
                 <% end %>
               </td>
               <td class="ml-4 px-6 py-4 whitespace-no-wrap">
-                <div class="rounded border-gray-700 flex justify-center w-48 shadow-md px-3 py-2 bg-level-6  hover:text-white">
-                  <p class="text-white">training:
-                    <%= video.training %>
-                    words:<%= video.level %>
+                  <% level = "Advanced" %>
+                  <% level = "Intermediate" if video.level < 320 %>
+                  <% level = "Beginner" if video.level < 200 %>
+                <div class="rounded-full bg-opacity-50 border-gray-700 flex justify-center text-sm px-3 py-2
+                  <%= "bg-level-6" if level == "Advanced" %>
+                  <%= "bg-level-4" if level == "Intermediate" %>
+                  <%= "bg-level-2" if level == "Beginner" %>
+                  hover:text-white">
+
+                  <p class="text-white">
+                    <%= level %>
                   </p>
                 </div>
               </td>
