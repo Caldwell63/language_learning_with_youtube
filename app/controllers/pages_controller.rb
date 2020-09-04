@@ -16,18 +16,14 @@ class PagesController < ApplicationController
 
     if params[:level].present?
       case params[:level]
-      when "A1"
+      when "Beginner"
         @videos = @videos.level_1
-      when "A2"
+      when "Intermediate"
         @videos = @videos.level_2
-      when "B1"
+      when "Advanced"
         @videos = @videos.level_3
-      when "B2"
+      when "All"
         @videos = @videos.level_4
-      when "C1"
-        @videos = @videos.level_5
-      when "C2"
-        @videos = @videos.level_6
       end
       # redirect_to root_path(anchor: "search")
     end

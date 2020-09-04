@@ -28,11 +28,10 @@
           </div>
           <div class="container items-center mt-6 mb-8 flex">
             <span class="mr-4 py-2 rounded text-md font-small leading-4 text-gray-500" href="/">Level:</span>
-            <a class="px-2 mr-4  px-4 py-2 rounded text-md font-medium leading-4 bg-level-1 text-white hover:bg-white hover:text-level-1 hover:shadow" href="/?level=A1&commit=Search#search">A1</a>
-            <a class="px-2 mr-4  px-4 py-2 rounded text-md font-medium leading-4 bg-level-2 text-white hover:bg-white hover:text-level-2 hover:shadow" href="/?level=A2&commit=Search#search">A2</a>
-            <a class="px-2 mr-4  px-4 py-2 rounded text-md font-medium leading-4 bg-level-3 text-white hover:bg-white hover:text-level-3 hover:shadow" href="/?level=B1&commit=Search#search">B1</a>
-            <a class="px-2 mr-4  px-4 py-2 rounded text-md font-medium leading-4 bg-level-4 text-white hover:bg-white hover:text-level-4 hover:shadow" href="/?level=B2&commit=Search#search">B2</a>
-            <a class="px-2 mr-4  px-4 py-2 rounded text-md font-medium leading-4 bg-level-6 text-white hover:bg-white hover:text-level-6 hover:shadow" href="/?level=C1&commit=Search#search">C1</a>
+            <a class="px-2 mr-4  shadow-md px-4 py-2 rounded text-md font-medium leading-4 bg-gray-300 text-white hover:bg-white hover:text-gray-500 hover:shadow" href="/?level=All&commit=Search#search">All</a>
+            <a class="px-2 mr-4  shadow-md px-4 py-2 rounded text-md font-medium leading-4 bg-level-1 text-white hover:bg-white hover:text-level-1 hover:shadow" href="/?level=Beginner&commit=Search#search">Beginner</a>
+            <a class="px-2 mr-4  shadow-md px-4 py-2 rounded text-md font-medium leading-4 bg-level-2 text-white hover:bg-white hover:text-level-2 hover:shadow" href="/?level=Intermediate&commit=Search#search">Intermediate</a>
+            <a class="px-2 mr-4  shadow-md px-4 py-2 rounded text-md font-medium leading-4 bg-level-3 text-white hover:bg-white hover:text-level-3 hover:shadow" href="/?level=Advanced&commit=Search#search">Advanced</a>
           </div>
         </div>
       </div>
@@ -72,14 +71,14 @@
                   </div>
                 <% end %>
               </td>
-              <td class="ml-4 px-6 py-4 whitespace-no-wrap">
+              <td class="ml-4 px-6 opacity-75  py-4 whitespace-no-wrap">
                   <% level = "Advanced" %>
                   <% level = "Intermediate" if video.level < 320 %>
                   <% level = "Beginner" if video.level < 200 %>
-                <div class="rounded-full bg-opacity-50 border-gray-700 flex justify-center text-sm px-3 py-2
-                  <%= "bg-level-6" if level == "Advanced" %>
-                  <%= "bg-level-4" if level == "Intermediate" %>
-                  <%= "bg-level-2" if level == "Beginner" %>
+                <div class="text-center py-2 shadow-inner rounded text-xs font-extrabold text-white
+                  <%= "bg-level-3" if level == "Advanced" %>
+                  <%= "bg-level-2" if level == "Intermediate" %>
+                  <%= "bg-level-1" if level == "Beginner" %>
                   hover:text-white">
 
                   <p class="text-white">
