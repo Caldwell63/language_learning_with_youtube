@@ -1,16 +1,5 @@
 
 
-puts "cleaning #{Word.count} words form DB..."
-Word.destroy_all
-puts Word.count
-
-import_from_csv
-
-puts "Finish! now #{Word.count} words in DB"
-
-
-
-
 
 
 
@@ -82,7 +71,7 @@ end
 # Word.destroy_all
 # puts Word.count
 # import_from_csv
-# puts "Finish! now #{Word.count} words in DB"
+puts "Finish! now #{Word.count} words in DB"
 
 
 
@@ -94,50 +83,54 @@ Video.destroy_all
 
 
 
-a_one = ["https://www.youtube.com/watch?v=erjMgola4fQ",
-      "https://www.youtube.com/watch?v=WFRR0zC70-0",
-      "https://www.youtube.com/watch?v=RP1AL2DU6vQ",
-      "https://www.youtube.com/watch?v=akZrk7jF5Jo",
-      # "https://www.youtube.com/watch?v=NGRYhHduX8o",
-      # "https://www.youtube.com/watch?v=cUogZMEs39g",
-      # "https://www.youtube.com/watch?v=nUlpLXpB_dg",
-      # "https://www.youtube.com/watch?v=uVGV8LG3HHM"
+a_one = [
+      # "https://www.youtube.com/watch?v=WFRR0zC70-0",
+      # "https://www.youtube.com/watch?v=RP1AL2DU6vQ",
+      # "https://www.youtube.com/watch?v=akZrk7jF5Jo",
+      "https://www.youtube.com/watch?v=NGRYhHduX8o",
+      "https://www.youtube.com/watch?v=cUogZMEs39g",
+      "https://www.youtube.com/watch?v=nUlpLXpB_dg",
+      "https://www.youtube.com/watch?v=uVGV8LG3HHM"
     ]
-a2 = ["https://www.youtube.com/watch?v=EOfWriKvGN0",
-      "https://www.youtube.com/watch?v=xL3jQzi7q_M",
-      "https://www.youtube.com/watch?v=DTvgAxi5mVA",
-      "https://www.youtube.com/watch?v=5U2JTpEv7lY",
-      # "https://www.youtube.com/watch?v=M25ieTfZ1eI",
-      # "https://www.youtube.com/watch?v=mqYf20skxgY",
-      # "https://www.youtube.com/watch?v=gOMypAhVaXE",
-      # "https://www.youtube.com/watch?v=GH7x5w7mtjE"
+a2 = [
+      # "https://www.youtube.com/watch?v=EOfWriKvGN0",
+      # "https://www.youtube.com/watch?v=xL3jQzi7q_M",
+      # "https://www.youtube.com/watch?v=DTvgAxi5mVA",
+      # "https://www.youtube.com/watch?v=5U2JTpEv7lY",
+      "https://www.youtube.com/watch?v=M25ieTfZ1eI",
+      "https://www.youtube.com/watch?v=mqYf20skxgY",
+      "https://www.youtube.com/watch?v=gOMypAhVaXE",
+      "https://www.youtube.com/watch?v=GH7x5w7mtjE"
      ]
-b1 = ["https://www.youtube.com/watch?v=g2AdkNH-kWA",
-      "https://www.youtube.com/watch?v=HJx7C7GT2VU",
-      "https://www.youtube.com/watch?v=gdK6z0i1uOs",
-      "https://www.youtube.com/watch?v=F-175C95uGE",
-      # "https://www.youtube.com/watch?v=6i0A2nkjI9g",
-      # "https://www.youtube.com/watch?v=q6jL_MwFxnI",
-      # "https://www.youtube.com/watch?v=ottnH427Fr8",
-      # "https://www.youtube.com/watch?v=NCYTGHvjTAQ"
-    ]
-b2 = ["https://www.youtube.com/watch?v=gdK6z0i1uOs",
-      "https://www.youtube.com/watch?v=F-175C95uGE",
+  b1 = [
+#       "https://www.youtube.com/watch?v=g2AdkNH-kWA",
+#       "https://www.youtube.com/watch?v=HJx7C7GT2VU",
+#       "https://www.youtube.com/watch?v=gdK6z0i1uOs",
+#       "https://www.youtube.com/watch?v=F-175C95uGE",
       "https://www.youtube.com/watch?v=6i0A2nkjI9g",
       "https://www.youtube.com/watch?v=q6jL_MwFxnI",
-      # "https://www.youtube.com/watch?v=OX-XEa50fFw",
-      # "https://www.youtube.com/watch?v=ottnH427Fr8",
-      # "https://www.youtube.com/watch?v=NCYTGHvjTAQ",
-      # "https://www.youtube.com/watch?v=XkBBbve3XbA"
+      "https://www.youtube.com/watch?v=ottnH427Fr8",
+      "https://www.youtube.com/watch?v=NCYTGHvjTAQ"
     ]
-c1 = ["https://www.youtube.com/watch?v=Ib-E0NBCglI",
-      "https://www.youtube.com/watch?v=gupTjlZsQFI",
-      "https://www.youtube.com/watch?v=ZOOSIPzi3Ls",
-      "https://www.youtube.com/watch?v=2vk084myCAg",
-      # "https://www.youtube.com/watch?v=pHs-zrNOIOY",
-      # "https://www.youtube.com/watch?v=nhZ4JCrOwe0",
-      # "https://www.youtube.com/watch?v=rUdHoEiydX0",
-      # "https://www.youtube.com/watch?v=fUDDsZ2I_gk"
+b2 = [
+      # "https://www.youtube.com/watch?v=gdK6z0i1uOs",
+      # "https://www.youtube.com/watch?v=F-175C95uGE",
+      # "https://www.youtube.com/watch?v=6i0A2nkjI9g",
+      # "https://www.youtube.com/watch?v=q6jL_MwFxnI",
+      # "https://www.youtube.com/watch?v=OX-XEa50fFw",
+      "https://www.youtube.com/watch?v=ottnH427Fr8",
+      "https://www.youtube.com/watch?v=NCYTGHvjTAQ",
+      "https://www.youtube.com/watch?v=XkBBbve3XbA"
+    ]
+c1 = [
+      # "https://www.youtube.com/watch?v=Ib-E0NBCglI",
+      # "https://www.youtube.com/watch?v=gupTjlZsQFI",
+      # "https://www.youtube.com/watch?v=ZOOSIPzi3Ls",
+      # "https://www.youtube.com/watch?v=2vk084myCAg",
+      "https://www.youtube.com/watch?v=pHs-zrNOIOY",
+      "https://www.youtube.com/watch?v=nhZ4JCrOwe0",
+      "https://www.youtube.com/watch?v=rUdHoEiydX0",
+      "https://www.youtube.com/watch?v=fUDDsZ2I_gk"
      ]
 
 programm = Word.new

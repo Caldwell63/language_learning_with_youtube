@@ -11,14 +11,17 @@ class Card < ApplicationRecord
     card = self
     word_en = card.word.en
     card.gif = card.get_gif(word_en)
-    # card.add_translation(word_en)
+    card.word.fr = card.add_translation(word_en)
+    card.word.save
     card.save
   end
 
 
 
   def add_translation(word_en)
-    translate_to = self.user.native_language
+    # translate_to = self.user.native_language
+    translate_to = "fr"
+    Translate.new(word_en, translate_to).call
     # api_to translate word_en
   end
 
@@ -33,5 +36,6 @@ class Card < ApplicationRecord
     id = result.first[1].first['id']
     "https://i.giphy.com/#{id}.gif"
   end
+
 
 end
