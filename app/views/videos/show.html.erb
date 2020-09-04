@@ -30,7 +30,7 @@
             <div class="max-w-screen-xl mx-auto pl-5 ">
               <p class="text-center text-base leading-6 mb-5  font-semibold uppercase text-gray-600 tracking-wider">
               Add to cards          </p>
-              
+
             <% @video.vocabulary.each do |word_str|%>
             <% word = Word.find_by(en: word_str) %>
                 <%= link_to cards_path(user_id: current_user.id, word_id: word.id, from_video: true), method: :post do %>              <span class="inline-flex items-center px-3 py-1 rounded-full hover:bg-green-300 font-medium leading-4 bg-gray-200 text-gray-600 m-1">
@@ -78,4 +78,3 @@
     </div>
 
   </main>
-</div>

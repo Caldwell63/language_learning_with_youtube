@@ -7,35 +7,32 @@
         <h3 class="mt-2 mb-6 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
           Browse for videos at your language level
         </h3>
+        <div class="bg-white mt-8">
+          <div class="bg-white container mx-auto w-12/12 pb-4">
 
-      <div class="bg-white mt-8">
-        <div class="bg-white container mx-auto w-12/12 pb-4">
-          <div class="flex items-center">
             <div class="rounded-md flex items-center w-full ">
               <div class="flex-grow">
                 <%= form_tag "/#search", method: :get do %>
-                <%= text_field_tag :query, params[:query], class: "pl-4 shadow-sm form-control w-full h-12 border-solid border-2 border-gray-200  rounded-none rounded-l-md transition ease-in-out duration-150 sm:text-sm sm:leading-5", placeholder: "Find a video" %>
+                <%= text_field_tag :query, params[:query], class: "pl-4 shadow-sm form-control w-full h-12 rounded-none rounded-l-md transition ease-in-out duration-150 sm:text-sm sm:leading-5 bg-gray-200 focus:bg-white border-transparent focus:border-blue-400", placeholder: "Find a video" %>
               </div>
               <div>
-                <%= submit_tag "Filter", class: "rounded-r-md h-12  shadow-sm w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium  text-white bg-red-c hover:bg-transparent hover:border-red-c hover:text-red-c focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"%>
+                <%= submit_tag "Filter", class: "rounded-r-md h-12 shadow-sm w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium text-white bg-red-c hover:bg-transparent hover:border-red-c hover:text-red-c
+                focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"%>
               </div>
               <p class="text-gray-500 pl-4">or</p>
-              <div>
-                <a href="#myModal" class="pl-4 underline text-red-c" data-toggle="modal">Search on Youtube</a>
-              </div>
-                <%= render 'shared/modaltest' %>
-            </div>
-
             <% end %>
+            <div>
+              <a href="#myModal" class="pl-4 underline text-red-c" data-toggle="modal">Search on Youtube</a>
+            </div>
 
           </div>
           <div class="container items-center mt-6 mb-8 flex">
-            <span class="py-2 mr-2 py-2 rounded text-md font-small leading-4 text-gray-500" href="/">Level:</span>
-            <a class="py-2 px-2 mr-2  px-4 py-2 rounded text-md font-medium leading-4 bg-level-1 text-white hover:bg-white hover:text-level-1 hover:shadow" href="/?level=A1&commit=Search#search">A1</a>
-            <a class="py-2 px-2 mr-2  px-4 py-2 rounded text-md font-medium leading-4 bg-level-2 text-white hover:bg-white hover:text-level-2 hover:shadow" href="/?level=A2&commit=Search#search">A2</a>
-            <a class="py-2 px-2 mr-2  px-4 py-2 rounded text-md font-medium leading-4 bg-level-3 text-white hover:bg-white hover:text-level-3 hover:shadow" href="/?level=B1&commit=Search#search">B1</a>
-            <a class="py-2 px-2 mr-2  px-4 py-2 rounded text-md font-medium leading-4 bg-level-4 text-white hover:bg-white hover:text-level-4 hover:shadow" href="/?level=B2&commit=Search#search">B2</a>
-            <a class="py-2 px-2 mr-2  px-4 py-2 rounded text-md font-medium leading-4 bg-level-6 text-white hover:bg-white hover:text-level-6 hover:shadow" href="/?level=C1&commit=Search#search">C1</a>
+            <span class="mr-4 py-2 rounded text-md font-small leading-4 text-gray-500" href="/">Level:</span>
+            <a class="px-2 mr-4  px-4 py-2 rounded text-md font-medium leading-4 bg-level-1 text-white hover:bg-white hover:text-level-1 hover:shadow" href="/?level=A1&commit=Search#search">A1</a>
+            <a class="px-2 mr-4  px-4 py-2 rounded text-md font-medium leading-4 bg-level-2 text-white hover:bg-white hover:text-level-2 hover:shadow" href="/?level=A2&commit=Search#search">A2</a>
+            <a class="px-2 mr-4  px-4 py-2 rounded text-md font-medium leading-4 bg-level-3 text-white hover:bg-white hover:text-level-3 hover:shadow" href="/?level=B1&commit=Search#search">B1</a>
+            <a class="px-2 mr-4  px-4 py-2 rounded text-md font-medium leading-4 bg-level-4 text-white hover:bg-white hover:text-level-4 hover:shadow" href="/?level=B2&commit=Search#search">B2</a>
+            <a class="px-2 mr-4  px-4 py-2 rounded text-md font-medium leading-4 bg-level-6 text-white hover:bg-white hover:text-level-6 hover:shadow" href="/?level=C1&commit=Search#search">C1</a>
           </div>
         </div>
       </div>
@@ -43,7 +40,7 @@
   </div>
 </div>
 
-<div  class="flex flex-col ">
+<div class="flex flex-col ">
   <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8 rounded-lg">
       <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg mb-16">
@@ -92,3 +89,4 @@
 </div>
 </div>
 </div>
+<%= render 'shared/modaltest' %>
