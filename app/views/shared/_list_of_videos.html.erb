@@ -10,22 +10,21 @@
         <div class="bg-white mt-8">
           <div class="bg-white container mx-auto w-12/12 pb-4">
 
+          <%= form_tag "/#search", method: :get do %>
             <div class="rounded-md flex items-center w-full ">
               <div class="flex-grow">
-                <%= form_tag "/#search", method: :get do %>
                 <%= text_field_tag :query, params[:query], class: "pl-4 shadow-sm form-control w-full h-12 rounded-none rounded-l-md transition ease-in-out duration-150 sm:text-sm sm:leading-5 bg-gray-200 focus:bg-white border-transparent focus:border-blue-400", placeholder: "Find a video" %>
               </div>
               <div>
-                <%= submit_tag "Filter", class: "rounded-r-md h-12 shadow-sm w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium text-white bg-red-c hover:bg-transparent hover:border-red-c hover:text-red-c
-                focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"%>
+                <%= submit_tag "Filter", class: "rounded-r-md h-12 shadow-sm w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium text-white bg-red-c hover:bg-transparent hover:border-red-c hover:text-red-c focus:outline-none focus:shadow-outline transition duration-150 ease-in-out" %>
               </div>
               <p class="text-gray-500 pl-4">or</p>
-            <% end %>
-            <div>
-              <a href="#myModal" class="pl-4 underline text-red-c" data-toggle="modal">Search on Youtube</a>
+              <div>
+                <a href="#myModal" class="pl-4 underline text-red-c" data-toggle="modal">Search on Youtube</a>
+              </div>
             </div>
+          <% end %>
 
-          </div>
           <div class="container items-center mt-6 mb-8 flex">
             <span class="mr-4 py-2 rounded text-md font-small leading-4 text-gray-500" href="/">Level:</span>
             <a class="px-2 mr-4  shadow-md px-4 py-2 rounded text-md font-medium leading-4 bg-gray-300 text-white hover:bg-white hover:text-gray-500 hover:shadow" href="/?level=All&commit=Search#search">All</a>
